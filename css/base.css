@@ -1,0 +1,29 @@
+.header {
+  height: 100px;
+}
+
+.titleText {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.subtitleText {
+  text-align: center;
+}
+
+.loginBox {
+  margin-top: 50px;
+}
+
+.margin {
+  margin-top: 15px;
+}
+
+.h1, .h2, .div {
+  font-family: Avenir;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(GlacialIndifference-Regular.otf);
+}
