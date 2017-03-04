@@ -2,6 +2,10 @@
   height: 100px;
 }
 
+.headerSmall {
+  height: 60px;
+}
+
 .titleText {
   vertical-align: middle;
   text-align: center;
@@ -21,6 +25,10 @@
 
 .h1, .h2, .div {
   font-family: Avenir;
+}
+
+.nav {
+  margin: 5px;
 }
 
 @font-face {
