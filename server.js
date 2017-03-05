@@ -78,12 +78,23 @@ app.post('/getAchievements', jsonParser, function(req,res){
     if (err){
         res.send(err);
     }else{
-        res.json(user['achievements']); // return user object in JSON format
+        res.json({'achievements':user['achievements']}); // return user object
     }
   });
 });
 
-
+/** Get Exercises list objects by achievement **/
+app.post('/getExercises', jsonParser, function(req,res){
+  Achievement.find({$and:[{'username':req.body.profile},{'achievement':req.body.achievement}]},function(err,achievement){
+    console.log('Profile:'+req.body.profile);
+    console.log('Achievement:'+req.body.achievement);
+    if (err){
+        res.send(err);
+    }else{
+        res.json({'exercises':achievement['exercises']}); // return exercise object list
+    }
+  });
+});
 
 
 
