@@ -87,9 +87,9 @@ app.controller('profileController', function($scope, $http){
                 alert(response);
             });
 	}
-		
+
 	$scope.addAchievement = function(){
-		var data = JSON.stringify({achievement: $scope.addAchievement});
+		var data = JSON.stringify({achievement: $scope.addAchievement},{profile:getCookie("profile")});
 		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./addAchievement', data, config)
             .then(function successCallback(response, status, headers, config) {
@@ -104,7 +104,7 @@ app.controller('profileController', function($scope, $http){
                 alert(response);
             });
 	}
-	
+
 	$scope.addExercise = function(){
 		var data = JSON.stringify({exercise: $scope.addExercise});
 		var config = { headers : {'Content-Type': 'application/json'}};
@@ -121,7 +121,7 @@ app.controller('profileController', function($scope, $http){
                 alert(response);
             });
 	}
-	
+
 	$scope.viewSchedule = function(){
 		document.getElementById("btn-achievement").className += " is-outlined";
 		document.getElementById("btn-posts").className += " is-outlined";

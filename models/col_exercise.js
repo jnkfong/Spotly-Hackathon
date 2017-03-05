@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ExerciseSchema = new Schema({
-  exercise_name:{type: String, default: '', required:true},
-  exercise_type:{type: String, default: '', required:true},
-  exercise_description:{type:String,default:''},
+  name:{type: String, default: '', required:true},
+  type:{type: String, default: '', required:true},
+  description:{type:String,default:''},
   //depends on exercise_type
-  exercise_measurement:{type:String,default:''}, //'kg/lbs' or 'minutes' or '# of reps'
-  exercise_sets:{type:Number,default:0},
-  exercise_reps:{type:Number,default:0},
-  exercise_weight:{type:Number,default:0},
-  exercise_time:{type:Number,default:0},
-  goal: {type: Number, default:'',required:true},
+  measurement:{type:String,default:''}, //'kg/lbs' or 'minutes' or '# of reps'
+  sets:{type:Number,default:0},
+  reps:{type:Number,default:0},
+  weight:{type:Number,default:0},
+  time:{type:Number,default:0},
+  goal: {type: Number, default:0,required:true},
   current: {type: Number, default:0},
   progress:{type:Number, default:0},
   planned_date: {type: Date, default: Date.now,required:true},
