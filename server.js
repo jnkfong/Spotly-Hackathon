@@ -27,6 +27,7 @@ app.use("/theme/sass", express.static(path.join(__dirname, '/theme/sass')));
 app.use("/img", express.static(path.join(__dirname, '/img')));
 app.use("/views", express.static(path.join(__dirname, '/views')));
 app.use("/", express.static(path.join(__dirname, '/templates')));
+app.use("/profile", express.static(path.join(__dirname, '/templates/profile.html')));
 
 //Views
 app.get('/', function (req, res) {
