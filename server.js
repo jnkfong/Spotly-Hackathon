@@ -34,8 +34,8 @@ app.get('/', function (req, res) {
 
 app.get('/all_users',function(req,res){
   mongoose.model('User').find(function(err,user){
-  res.send(user);
-});
+    res.send(user);
+  });
 });
 
 /** Get User object by User and Pass **/
@@ -52,10 +52,9 @@ app.post('/login', jsonParser, function(req, res) {
 
       if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
         bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(user[0]['username'], salt, function(err, profile) {
-                res.send([{'hashed_username':profile},{'redirect':'/profile.html'}]);
-
-            });
+          bcrypt.hash(user[0]['username'], salt, function(err, profile) {
+            res.send([{'redirect':'/profile.html'},{'hashed_username':profile}]);
+          });
         });
       }else{
         res.send("Not Found");
@@ -65,7 +64,7 @@ app.post('/login', jsonParser, function(req, res) {
 });
 
 /**Get hashed username **/
-app.post('/get_profile', jsonParser, function(req,res){
+app.post('/getProfile', jsonParser, function(req,res){
   User.find({'username':req.body.username},function(err,user){
     if (err){
       res.send(err);
@@ -83,7 +82,7 @@ app.post('/get_profile', jsonParser, function(req,res){
       }
     }
   });
-  });
+});
 
 
 //profile = hashed username as cookie
