@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+       function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 0, lng: 0},
+          zoom: 3,
+          styles: [{
+            featureType: 'poi',
+            stylers: [{ visibility: 'off' }]  // Turn off POI.
+          },
+          {
+            featureType: 'transit.station',
+            stylers: [{ visibility: 'off' }]  // Turn off bus, train stations etc.
+          }],
+          disableDoubleClickZoom: true,
+          streetViewControl: false,
+        });
+		var marker = new google.maps.Marker({
+			  "position":{lat: 0, lng: 0},
+			  "map": map
+			});
+       
+        // Listen for clicks and add the location of the click to firebase.
+        map.addListener('click', function(e) {
+			var data = JSON.stringify({
+			  "lat" : e.latLng.lat(),
+			  "lng" : e.latLng.lng()});
+			 
+			var myLatlng = {lat: e.latLng.lat(), lng: e.latLng.lng()};
+			
+			marker.position= myLatlng;
+        });
+}
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHxKiuYyoXKyDsFFCV-1ysHsEwT4Eze5Q&callback=initMap">
+    </script>
+  </body>
+</html>

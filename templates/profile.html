@@ -14,22 +14,21 @@
   </head>
   <body ng-controller="profileController">
     <div style='position: fixed; width: 100%; z-index: 2;'>
-      
+
       <section class='hero is-primary headerSmall'>
         <div class="media">
-          
+
           <div class="media-left">
             <figure class="image is-32x32 margin" style='margin-left: 15px'>
               <img src="../img/logo.png">
             </figure>
           </div>
-          
+
           <div class="media-content">
-            <h1 class='title titleText is-3 margin'>
+            <h1 id="title-name" class='title titleText is-3 margin'>
               <b>SPOTLY</b>
             </h1>
-          </div>
-          
+          </div>   
 
           <div class="media-right margin">
             <span class="icon is-medium" style='margin-left: -40px'>
@@ -40,9 +39,7 @@
               border: none; border-radius: 20px'>
             </input>
           </div>
-          
-          
-          
+        
           <div class="media-right">
             <!--
             <span class="tag is-large margin" style='background-color: rgba(30, 30, 30, 0.2)'>
@@ -58,13 +55,13 @@
               <img src="../img/Profile.png">
             </figure>
           </div>
-          
+
           <div class="media-right">
             <figure class="image is-32x32 margin">
               <img src="../img/Calendar.png">
             </figure>
           </div>
-          
+
           <div class="media-right">
             <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
               Logout
@@ -74,7 +71,7 @@
         </div>
       </section>
     </div>
-    
+
     <!--
     <div class='nav'>
       <div class='nav-right nav-menu'>
@@ -87,10 +84,10 @@
       </div>
     </div>
     -->
-    
+
     <section class='section'>
       <div class='columns'>
-        
+
         <div class='column is-3 is-narrow' style='margin-top: 50px; z-index: 1;'>
           <div class='card'>
             <div class='card-image'>
@@ -106,12 +103,12 @@
                   <p class="subtitle is-6">@johnsmith</p>
                 </div>
               </div>
-          
+
               <div class="content">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
               <hr/>
-              
+
               <div class='subtitle reduceMargin'>
                 Age
               </div>
@@ -119,7 +116,7 @@
                <p>{{user.age}}</p>
               </div>
               <hr/>
-              
+
               <div class='subtitle reduceMargin'>
                 Location
               </div>
@@ -127,7 +124,7 @@
                  <p>{{user.city}}</p>
               </div>
               <hr/>
-              
+
               <div class='subtitle reduceMargin'>
                 Goal
               </div>
@@ -135,21 +132,21 @@
                 Bulk
               </div>
               <hr/>
-              
+
               <div class='subtitle reduceMargin'>
                 Weight
               </div>
               <div class="content reduceMargin">
                 <p>{{user.weight_current}} lbs</p>
               </div>
-              
+
               <div class='subtitle reduceMargin'>
                 Height
               </div>
               <div class="content reduceMargin">
                 <p>{{user.height}}</p>
               </div>
-              
+
               <hr/>
               <nav class='panel margin'>
                 <p class="panel-heading">
@@ -165,13 +162,13 @@
                   Jessie
                 </a>
               </nav>
-              
+
               <a class="button is-primary"><i class="fa fa-book"></i><p style='margin-left: 8px'>Edit</p></a>
-              
+
             </div>
           </div>
         </div>
-        
+
         <div class='column' style='margin-top: 50px;'>
           <!--
           <div class="tabs">
@@ -190,8 +187,8 @@
             <button id="btn-posts" class="button is-primary is-large is-outlined" ng-click="viewPosts()">Posts</button>
             <button id="btn-schedule" class="button is-primary is-large is-outlined" ng-click="viewSchedule()">Schedule</button>
           </p>
-          
-          
+
+
         <div id="profile-overview">
 			<div ng-repeat="achievement in achievements">
 			  <section class='section'>
@@ -217,19 +214,19 @@
 				<div class="card-content">
 				  <div class="media">
 					<div class="media-left">
-					  <p class='title is-1'>{{exercise.exercise_name}}</p>
+					  <p class='title is-1'>{{exercise.name}}</p>
 					</div>
 					<div class="media-content">
 					  <div style="border-left:1px solid gray;height:70px">
 						<p class='title is-1' style='margin-left: 25px'>
-						<span ng-if="exercise.exercise_measurement == 'LB'">
-						  <b>{{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						<span ng-if="exercise.measurement == 'LB'">
+						  <b>{{exercise.weight}}</b> {{exercise.measurement}}
 						  </span>
-						  <span ng-if="exercise.exercise_measurement == 'KG'">
-						  <b>{{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  <span ng-if="exercise.measurement == 'KG'">
+						  <b>{{exercise.weight}}</b> {{exercise.measurement}}
 						  </span>
-						  <span ng-if="exercise.exercise_measurement == 'minutes'">
-						  <b>{{exercise.exercise_time}}</b> {{exercise.exercise_measurement}}
+						  <span ng-if="exercise.measurement == 'minutes'">
+						  <b>{{exercise.time}}</b> {{exercise.measurement}}
 						  </span>
 						</p>
 					  </div>
@@ -238,10 +235,10 @@
 					  <a class="delete"></a>
 					</div>
 				  </div>
-			  
+
 				  <div class="content">
 					<progress class="progress margin is-primary" value="75" max="100"></progress>
-					
+
 					<div class="media">
 					  <div class="media-left">
 						<small>{{exercise.planned_date}}</small>
@@ -249,14 +246,14 @@
 					  <div class="media-content"></div>
 					  <div class="media-right">
 						<small>
-						  <span ng-if="exercise.exercise_measurement == 'LB'">
-						  <b>Goal {{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  <span ng-if="exercise.measurement == 'LB'">
+						  <b>Goal {{exercise.weight}}</b> {{exercisemeasurement}}
 						  </span>
-						  <span ng-if="exercise.exercise_measurement == 'KG'">
-						  <b>Goal {{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  <span ng-if="exercise.measurement == 'KG'">
+						  <b>Goal {{exercise.weight}}</b> {{exercise.measurement}}
 						  </span>
-						  <span ng-if="exercise.exercise_measurement == 'minutes'">
-						  <b>Goal {{exercise.exercise_time}}</b> {{exercise.exercise_measurement}}
+						  <span ng-if="exercise.measurement == 'minutes'">
+						  <b>Goal {{exercise.time}}</b> {{exercise.measurement}}
 						  </span>
 						</small>
 					  </div>
@@ -283,10 +280,10 @@
                   <a class="delete"></a>
                 </div>
               </div>
-          
+
               <div class="content">
                 <progress class="progress margin is-primary" value="90" max="100"></progress>
-                
+
                 <div class="media">
                   <div class="media-left">
                     <small>11:30 PM - 2 Feb 2016</small>
@@ -298,13 +295,13 @@
                     </small>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>
-          
-          
-          
+
+
+
           <section class='section'>
             <hr/>
             <div class='columns'>
@@ -322,7 +319,7 @@
 
             </div>
           </section>
-              
+
           <div class="card margin">
             <div class="card-content">
               <div class="media">
@@ -340,10 +337,10 @@
                   <a class="delete"></a>
                 </div>
               </div>
-          
+
               <div class="content">
                 <progress class="progress margin is-primary" value="20" max="100"></progress>
-                
+
                 <div class="media">
                   <div class="media-left">
                     <small>11:09 PM - 1 Jan 2016</small>
@@ -355,7 +352,7 @@
                     </small>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -388,7 +385,7 @@
               
               <hr/>
               
-              <nav class="level">
+              <nav class="level" style='margin-top: -30px'>
                 <div class="level-left">
                   <div class="level-item">
                     <p class='title is-2' style='width: 240px'>Max</p>
@@ -400,7 +397,7 @@
                 </div>
               </nav>
               
-              <nav class="level">
+              <nav class="level" style='margin-top: -60px'>
                 <div class="level-left">
                   <div class="level-item">
                     <p class='title is-2' style='width: 240px'>Goal</p>
@@ -412,10 +409,10 @@
                 </div>
               </nav>
               
-              <a class='button is-primary is-medium'>
+              <a class='button is-primary is-medium' style='margin-top: -30px'>
                 Add
               </a>
-              <a class='button is-medium' style='margin-left: 5px'>
+              <a class='button is-medium' style='margin-left: 5px; margin-top: -30px'>
                 Cancel
               </a>
           
@@ -444,7 +441,7 @@
 
             </div>
           </section>
-          
+
           <table class="table">
             <thead>
               <tr>
@@ -493,10 +490,10 @@
           </table>
           </div>
         </div>
-        
+
       </div>
     </section>
-    
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>

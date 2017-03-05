@@ -5,8 +5,8 @@ var app = angular.module('spotly', []);
 app.controller('indexController', function($scope, $http){
    $scope.login = function () {
 
-			var data = JSON.stringify({username: $scope.username, password: $scope.password});
-      var config = { headers : {'Content-Type': 'application/json'}};
+		var data = JSON.stringify({username: $scope.username, password: $scope.password});
+		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./login', data, config)
             .then(function successCallback(response, status, headers, config) {
                if(typeof response.data.redirect === 'string' && typeof response.data.profile === 'string' ){
@@ -34,24 +34,93 @@ app.controller('profileController', function($scope, $http){
 				$scope.user = response.data[0];
 			  }
 			  else{
-
+				window.location.replace("./");
 			  }
             }, function errorCallback(response, status, header, config) {
                 alert(response);
             });
-		$http.post('./getAcheivements', data, config)
+
+		var data = JSON.stringify({profile:getCookie("profile")});
+		var config = { headers : {'Content-Type': 'application/json'}};
+		$http.post('./getAchievements', data, config)
+				.then(function successCallback(response, status, headers, config) {
+				  if(typeof response.data != "undefined"){
+			$scope.achievements = response.data;
+			}
+			else{
+
+			}
+				}, function errorCallback(response, status, header, config) {
+					alert(response);
+				});
+          });
+
+
+	$scope.editUser = function () {
+		var data = JSON.stringify({edit_user: $scope.edit_user});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./editUser', data, config)
             .then(function successCallback(response, status, headers, config) {
-              if(typeof response.data != "undefined"){
-				$scope.achievements = response.data;
-			  }
-			  else{
-
-			  }
+               if(typeof response.data !== 'string' ){
+				  $scope.user = response.data;
+			   }
+			   else{
+				   alert(response.data);
+			   }
             }, function errorCallback(response, status, header, config) {
                 alert(response);
             });
-	});
 
+        };
+
+	$scope.getExercises = function(){
+            $http.get('./getExercises')
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.exerciseList = response.data;
+			   }
+			   else{
+				   $scope.addAchievement = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
+
+	$scope.addAchievement = function(){
+		var data = JSON.stringify({achievement: $scope.addAchievement},{profile:getCookie("profile")});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./addAchievement', data, config)
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.addAchievement = null;
+			   }
+			   else{
+				   $scope.addAchievement = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
+
+	$scope.addExercise = function(){
+		var data = JSON.stringify({exercise: $scope.addExercise});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./addExercise', data, config)
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.addExercise = null;
+			   }
+			   else{
+				   $scope.addExercise = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
 
 	$scope.viewSchedule = function(){
 		document.getElementById("btn-achievement").className += " is-outlined";
@@ -67,8 +136,6 @@ app.controller('profileController', function($scope, $http){
 		document.getElementById("schedule-overview").style.display ="none";
 		document.getElementById("profile-overview").style.display ="block";
 	}
-
-
 });
 
 
