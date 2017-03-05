@@ -27,7 +27,10 @@
           disableDoubleClickZoom: true,
           streetViewControl: false,
         });
-		var marker;
+		var marker = new google.maps.Marker({
+			  "position":{lat: 0, lng: 0},
+			  "map": map
+			});
        
         // Listen for clicks and add the location of the click to firebase.
         map.addListener('click', function(e) {
@@ -36,10 +39,8 @@
 			  "lng" : e.latLng.lng()});
 			 
 			var myLatlng = {lat: e.latLng.lat(), lng: e.latLng.lng()};
-			var marker = new google.maps.Marker({
-			  "position": myLatlng,
-			  "map": map
-			});
+			
+			marker.position= myLatlng;
         });
 }
 

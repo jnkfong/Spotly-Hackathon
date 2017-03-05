@@ -45,7 +45,7 @@ app.controller('profileController', function($scope, $http){
 				$scope.achievements = response.data;
 			  }
 			  else{
-
+				window.location.replace("./");
 			  }
             }, function errorCallback(response, status, header, config) {
                 alert(response);
@@ -53,7 +53,6 @@ app.controller('profileController', function($scope, $http){
 	});
 
 	$scope.editUser = function () {
-
 		var data = JSON.stringify({edit_user: $scope.edit_user});
 		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./editUser', data, config)
@@ -70,6 +69,55 @@ app.controller('profileController', function($scope, $http){
 
         };
 
+	$scope.getExercises = function(){
+            $http.get('./getExercises')
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.exerciseList = response.data;
+			   }
+			   else{
+				   $scope.addAchievement = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
+		
+	$scope.addAchievement = function(){
+		var data = JSON.stringify({achievement: $scope.addAchievement});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./addAchievement', data, config)
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.addAchievement = null;
+			   }
+			   else{
+				   $scope.addAchievement = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
+	
+	$scope.addExercise = function(){
+		var data = JSON.stringify({exercise: $scope.addExercise});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./addExercise', data, config)
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.addExercise = null;
+			   }
+			   else{
+				   $scope.addExercise = null;
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+	}
+	
 	$scope.viewSchedule = function(){
 		document.getElementById("btn-achievement").className += " is-outlined";
 		document.getElementById("btn-posts").className += " is-outlined";
@@ -84,8 +132,6 @@ app.controller('profileController', function($scope, $http){
 		document.getElementById("schedule-overview").style.display ="none";
 		document.getElementById("profile-overview").style.display ="block";
 	}
-
-
 });
 
 
