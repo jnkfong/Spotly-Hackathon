@@ -53,7 +53,7 @@ app.controller('profileController', function($scope, $http){
 				}, function errorCallback(response, status, header, config) {
 					alert(response);
 				});
-          });
+			});
 
 
 	$scope.editUser = function () {
@@ -88,38 +88,34 @@ app.controller('profileController', function($scope, $http){
             });
 	}
 
-	$scope.addAchievement = function(){
-		var data = JSON.stringify({achievement: $scope.addAchievement},{profile:getCookie("profile")});
-		var config = { headers : {'Content-Type': 'application/json'}};
-            $http.post('./addAchievement', data, config)
-            .then(function successCallback(response, status, headers, config) {
-               if(typeof response.data !== 'string' ){
-				  $scope.addAchievement = null;
-			   }
-			   else{
-				   $scope.addAchievement = null;
-				   alert(response.data);
-			   }
-            }, function errorCallback(response, status, header, config) {
-                alert(response);
-            });
+	$scope.addAchievement = function(achievementName){
+		
+		$scope.getExercises();
+		if(document.getElementById(exercise-card).style.display === "none"){
+			document.getElementById(exercise-card).style.display = "block";
+			$scope.selectedMax = $.extend( {}, achievementName);
+		}
+		else{document.getElementById(exercise-card).style.display = "none"}
 	}
 
 	$scope.addExercise = function(){
-		var data = JSON.stringify({exercise: $scope.addExercise});
+		var data = JSON.stringify({$scope.newExercise});
 		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./addExercise', data, config)
             .then(function successCallback(response, status, headers, config) {
                if(typeof response.data !== 'string' ){
-				  $scope.addExercise = null;
+				  $scope.newExercise = null;
+				  $scope.achievements = response.data;
+				  alert("Exercise added");
 			   }
 			   else{
-				   $scope.addExercise = null;
+				   $scope.newExercise = null;
 				   alert(response.data);
 			   }
             }, function errorCallback(response, status, header, config) {
                 alert(response);
             });
+			
 	}
 
 	$scope.viewSchedule = function(){
