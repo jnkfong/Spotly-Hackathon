@@ -6,7 +6,6 @@ var bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
 const UserSchema = new Schema({
-  // id:{type:Number},
   first_name: { type: String, default: '',required:true },
   last_name: { type: String, default: '',required:true },
   age:{ type: Number, default: '' },
@@ -16,10 +15,9 @@ const UserSchema = new Schema({
   weight_current:{ type: String, default: '',required:true },
   body_fat_percentage:{type:Number,default:0},
   achievements:[{type:Schema.Types.ObjectId,ref:Achievement}],
-  subscribed_status:{type:Boolean,required:true},
+  subscription_status:{type:Boolean,required:true},
   email:{type:String,required:true},
   username:{type:String,required:true},
-  hashed_username:{type:String},
   password: {type: String, required:true},
   friends_list:[{type: String}]
 });
@@ -41,24 +39,6 @@ UserSchema.pre('save', function(next){
         });
     });
 });
-
-// Hash the username
-UserSchema.pre('save', function(next){
-    var user = this;
-    if (!user.isModified('username')) return next();
-
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-        if(err) return next(err);
-
-        bcrypt.hash(user.username, salt, function(err, hash){
-            if(err) return next(err);
-
-            user.hashed_username = hash;
-            next();
-        });
-    });
-});
-
 
   /**
    * Backend Validations (check if existing)

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var path = require("path");
 
-var uri ='mongodb://localhost:27017';//connect to DB
+var uri = 'mongodb://localhost:27017'; //connect to DB
 var db = mongoose.connect(uri);
 
 //Models
@@ -13,7 +13,7 @@ var Exercise = require('./models/col_exercise.js');
 var Achievement = require('./models/col_achievement.js');
 
 var bodyParser = require('body-parser');
-var jsonParser = bodyParser.json();// create application/json parser
+var jsonParser = bodyParser.json(); // create application/json parser
 app.use(bodyParser.urlencoded({extended: true}));
 
 //Routing
@@ -26,109 +26,178 @@ app.use("/views", express.static(path.join(__dirname, '/views')));
 app.use("/", express.static(path.join(__dirname, '/templates')));
 app.use("/profile", express.static(path.join(__dirname, '/templates/profile.html')));
 
-
 /*User Views*/
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname+ "/templates/index.html"));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + "/templates/index.html"));
 })
 
 /** Get Username and redirect link **/
 app.post('/login', jsonParser, function(req, res) {
-  // console.dir(req.body.username);
-  // console.dir(req.body.password);
-  User.find({'username':req.body.username},function(err,user){
-    if (err){
-      res.send(err);
-    }else{
-      //compare input password with hash
-      //Debug: console.log("Username: " +user[0]['username']);
-      //Debug: console.log("Password: " +user[0]['password']);
+    // console.dir(req.body.username);
+    // console.dir(req.body.password);
+    User.find({
+        'username': req.body.username
+    }, function(err, user) {
+        if (err) {
+            res.send(err);
+        } else {
+            //compare input password with hash
+            //Debug: console.log("Username: " +user[0]['username']);
+            //Debug: console.log("Password: " +user[0]['password']);
 
-      if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
-            res.send(JSON.stringify({'redirect':'/profile.html','profile':req.body.username}));
-      }else{
-        res.send("Not Found");
-      }
-    }
-  });
+            if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
+                res.send(JSON.stringify({'redirect': '/profile.html', 'profile': req.body.username}));
+            } else {
+                res.send("Not Found");
+            }
+        }
+    });
 });
 
 /** Get User object by Username (check username) **/
-app.post('/getProfile', jsonParser, function(req,res){
-  User.find({'username':req.body.profile},function(err,user){
-    console.log(req.body.profile);
-    if (err){
-      res.send(err);
-    }else{
-        res.json(user); // return user object in JSON format
-    }
-  });
+app.post('/getProfile', jsonParser, function(req, res) {
+    User.find({
+        'username': req.body.profile
+    }, function(err, user) {
+        // console.log(req.body.profile);
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(user); // return user object in JSON format
+        }
+    });
 });
 
 /** Get Achievements list object by Username **/
-app.post('/getAchievements', jsonParser, function(req,res){
-  User.find({'username':req.body.profile},function(err,user){
-    console.log('Profile:'+req.body.profile);
-    if (err){
-        res.send(err);
-    }else{
-        res.json({'achievements':user['achievements']}); // return user object
-    }
-  });
+app.post('/getAchievements', jsonParser, function(req, res) {
+    User.find({
+        'username': req.body.profile
+    }, function(err, user) {
+        console.log('Profile:' + req.body.profile);
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({'achievements': user['achievements']}); // return user object
+        }
+    });
 });
 
 /** Get Exercises list objects by achievement **/
-app.post('/getExercises', jsonParser, function(req,res){
-  Achievement.find({$and:[{'username':req.body.profile},{'achievement':req.body.achievement}]},function(err,achievement){
-    console.log('Profile:'+req.body.profile);
-    console.log('Achievement:'+req.body.achievement);
-    if (err){
-        res.send(err);
-    }else{
-        res.json({'exercises':achievement['exercises']}); // return exercise object list
-    }
-  });
+app.post('/getExercises', jsonParser, function(req, res) {
+    Achievement.find({
+        $and: [
+            {
+                'username': req.body.profile
+            }, {
+                'achievement': req.body.achievement
+            }
+        ]
+    }, function(err, achievement) {
+        console.log('Profile:' + req.body.profile);
+        console.log('Achievement:' + req.body.achievement);
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({'exercises': achievement['exercises']}); // return exercise object list
+        }
+    });
+});
+
+app.post('/getUsers',jsonParser, function(req, res) {
+    //get all users in db
+    User.find({}, function(err, user_list) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(user_list)
+        }
+    });
 });
 
 /** Create Exercise objects **/
-app.post('/createExercise', jsonParser, function(req,res){
-  var new_exercise = new Exercise({
-  name:req.body.exercise.name,
-  type:req.body.exercise.type,
-  description:req.body.exercise.description,
-  measurement:req.body.exercise.measurement,
-  sets:req.body.exercise.sets,
-  reps:req.body.exercise.reps,
-  weight:req.body.exercise.weight,
-  time:req.body.exercise.time,
-  goal:req.body.exercise.goal,
-  current:req.body.exercise.current,
-  progress:req.body.exercise.progress,
-  achieved_date:req.body.exercise.achieved_date,
+//angular
+app.post('/createExercise', jsonParser, function(req, res) {
+    //   var new_exercise = new Exercise({
+    //   name:req.body.exercise.name,
+    //   type:req.body.exercise.type,
+    //   description:req.body.exercise.description,
+    //   measurement:req.body.exercise.measurement,
+    //   sets:req.body.exercise.sets,
+    //   reps:req.body.exercise.reps,
+    //   weight:req.body.exercise.weight,
+    //   time:req.body.exercise.time,
+    //   goal:req.body.exercise.goal,
+    //   current:req.body.exercise.current,
+    //   progress:req.body.exercise.progress,
+    //   achieved_date:req.body.exercise.achieved_date,
+    // });
+    //postman
+    var new_exercise = new Exercise({
+        name: req.body.name,
+        type: req.body.type,
+        description: req.body.description,
+        measurement: req.body.measurement,
+        sets: req.body.sets,
+        reps: req.body.reps,
+        weight: req.body.weight,
+        time: req.body.time,
+        goal: req.body.goal,
+        current: req.body.current,
+        progress: req.body.progress,
+        achieved_date: req.body.achieved_date
+    });
+    new_exercise.save(function(err, new_exercise) {
+        if (err) {
+            res.send(err);
+        } else { //should we save multiple exercises with one post request?
+            res.send(new_exercise);
+        }
+    });
 });
-  new_exercise.save(function(err,new_exercise){
-    if(err){
-      res.send(err);
-    }else{//should we save multiple exercises with one post request?
-      res.json(201,new_exercise);
-    }
-});
-});
-
 
 /** Create Achievement objects **/
-app.post('/createAchievement', jsonParser, function(req,res){
-  var new_achievement = new Achievement({
-    user_id:req.body.profile,
-    category:req.body.category,
-    //@TODO exercises:
-    });
+app.post('/createAchievement', jsonParser, function(req, res) {
 
-    if (err){
-        res.send(err);
-    }else{
-        // res.json({'exerci':achievement['exercises']}); // return exercise object list
-    }
+    var user_obj = User.findOne({'username': profile});
+
+    var new_achievement = new Achievement({
+        //@TODO: match with view.js params
+        user_id: user_obj._id,
+        category: req.body.category,
+        exercise: req.body.exercise
+    });
+    new_achievement.save(function(err,new_achievement){
+      if (err) {
+          res.send(err);
+      } else {
+          // res.json({'exerci':achievement['exercises']}); // return exercise object list
+          res.send(new_achievement);
+      }
+});
+});
+
+app.post('/createUser', jsonParser, function(req, res) {
+    var new_user = new User({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        age: req.body.age,
+        height: req.body.height,
+        city: req.body.city,
+        weight_goal: req.body.weight_goal,
+        weight_current: req.body.weight_current,
+        body_fat_percentage: req.body_fat_percentage,
+        subscription_status: req.body.subscription_status,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+    });
+    new_user.save(function(err,new_user){
+      if (err) {
+          res.send(err);
+      } else {
+          res.send(new_user);
+      }
+    });
 });
 
 
@@ -146,11 +215,9 @@ app.post('/createAchievement', jsonParser, function(req,res){
 
 /**Populate achievements with users**/
 
-
-app.listen(3000, function () {
-  console.log('-Server running-');
+app.listen(3000, function() {
+    console.log('-Server running-');
 })
-
 
 /*Debug: register new collections*/
 // var exercise = new Exercise(
@@ -164,14 +231,12 @@ app.listen(3000, function () {
 // exercise.save();
 // console.log('Saved!');
 
-
 // var achievement = new Achievement(
 // {
 // goal:20
 // });
 // achievement.save();
 // console.log('Saved!');
-
 
 // var user = new User(
 // {
