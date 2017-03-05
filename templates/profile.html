@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="spotly">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Blotter</title>
+    <title>Spotly</title>
 
     <link href="../theme/css/base.css" rel="stylesheet">
     <link href="../theme/css/bulma.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
-  <body>
+  <body ng-controller="profileController">
     <div style='position: fixed; width: 100%; z-index: 2;'>
       
       <section class='hero is-primary headerSmall'>
@@ -147,13 +147,13 @@
           </div>
         -->
           <p class="control has-addons">
-            <a class="button is-primary is-large">Achievements</a>
-            <a class="button is-primary is-large is-outlined">Posts</a>
-            <a class="button is-primary is-large is-outlined">Schedule</a>
+            <button id="btn-achievement" class="button is-primary is-large" ng-click="viewAchievement()">Achievements</button>
+            <button id="btn-posts" class="button is-primary is-large is-outlined" ng-click="viewPosts()">Posts</button>
+            <button id="btn-schedule" class="button is-primary is-large is-outlined" ng-click="viewSchedule()">Schedule</button>
           </p>
           
           
-          
+        <div id="profile-overview">
           <section class='section'>
 
               <div class='columns'>
@@ -303,7 +303,8 @@
               </div>
             </div>
           </div>
-          
+        </div>
+		 <div id="schedule-overview" style="display:none">
           <section class='section'>
             <hr/>
             <div class='columns'>
@@ -368,7 +369,7 @@
               </tr>
             </tbody>
           </table>
-          
+          </div>
         </div>
         
       </div>
@@ -376,4 +377,6 @@
     
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="../views/view.js"></script>
 </html>

@@ -35,5 +35,25 @@ app.controller('indexController', function($scope, $http){
 			
         };
 });
-    
+
+app.controller('profileController', function($scope, $http){
+
+	$scope.viewSchedule = function(){
+		document.getElementById("btn-achievement").className += " is-outlined";
+		document.getElementById("btn-posts").className += " is-outlined";
+		document.getElementById("btn-schedule").classList.remove("is-outlined");
+		document.getElementById("schedule-overview").style.display ="block";
+		document.getElementById("profile-overview").style.display ="none";
+	}
+	$scope.viewAchievement = function(){
+		document.getElementById("btn-schedule").className += " is-outlined";
+		document.getElementById("btn-posts").className += " is-outlined";
+		document.getElementById("btn-achievement").classList.remove("is-outlined");
+		document.getElementById("schedule-overview").style.display ="none";
+		document.getElementById("profile-overview").style.display ="block";
+	}
+	
+	
+});
+
 
