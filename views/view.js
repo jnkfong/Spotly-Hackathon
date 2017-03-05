@@ -9,8 +9,8 @@ app.controller('indexController', function($scope, $http){
            
             $http.post('./login', data, config)
             .then(function successCallback(data, status, headers, config) {
-               if(typeof data.redirect == 'string'){
-				   document.cookie = "profile=" + data.profile;
+               if(typeof data[0].redirect === 'string' && typeof data[1].profile === 'string' ){
+				   document.cookie = "profile=" + data[1].profile;
 				   window.location.replace(data.redirect);
 			   }
 			   else{
