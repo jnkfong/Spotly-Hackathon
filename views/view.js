@@ -17,7 +17,7 @@ app.controller('indexController', function($scope, $http){
 				   alert("User and password are incorrect!");
 			   }
             }, function errorCallback(response, status, header, config) {
-                alert(response);
+                // alert(response);
             });
 
         };
@@ -37,7 +37,7 @@ app.controller('profileController', function($scope, $http){
 				window.location.replace("./");
 			  }
             }, function errorCallback(response, status, header, config) {
-                alert(response);
+                // alert(response);
             });
 
 
@@ -54,7 +54,7 @@ app.controller('profileController', function($scope, $http){
 
 			}
 				}, function errorCallback(response, status, header, config) {
-					alert(response);
+					// alert(response);
 				});
 
       $http.get('./getExercises')
@@ -64,10 +64,10 @@ app.controller('profileController', function($scope, $http){
       			   }
       			   else{
       				   $scope.addAchievement = null;
-      				   alert(response.data);
+      				  //  alert(response.data);
       			   }
                   }, function errorCallback(response, status, header, config) {
-                      alert(response);
+                      // alert(response);
                   });
 
 			});
@@ -84,10 +84,10 @@ app.controller('profileController', function($scope, $http){
 				  $scope.user = response.data;
 			   }
 			   else{
-				   alert(response.data);
+				  //  alert(response.data);
 			   }
             }, function errorCallback(response, status, header, config) {
-                alert(response);
+                // alert(response);
             });
 
         };
@@ -114,10 +114,10 @@ app.controller('profileController', function($scope, $http){
 			   }
 			   else{
 				   $scope.newExercise = null;
-				   alert(response.data);
+				  //  alert(response.data);
 			   }
             }, function errorCallback(response, status, header, config) {
-                alert(response);
+                // alert(response);
             });
 
 	}

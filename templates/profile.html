@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="spotly">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,37 +12,37 @@
     <link href="../theme/css/bulma.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  </head>
-  <body ng-controller="profileController">
+</head>
+
+<body ng-controller="profileController">
     <div style='position: fixed; width: 100%; z-index: 2;'>
 
-      <section class='hero is-primary headerSmall'>
-        <div class="media">
+        <section class='hero is-primary headerSmall'>
+            <div class="media">
 
-          <div class="media-left">
-            <figure class="image is-32x32 margin" style='margin-left: 15px'>
-              <img src="../img/logo.png">
-            </figure>
-          </div>
+                <div class="media-left">
+                    <figure class="image is-32x32 margin" style='margin-left: 15px'>
+                        <img src="../img/logo.png">
+                    </figure>
+                </div>
 
-          <div class="media-content">
-            <h1 id="title-name" class='title titleText is-3 margin'>
+                <div class="media-content">
+                    <h1 id="title-name" class='title titleText is-3 margin'>
               <b>SPOTLY</b>
             </h1>
-          </div>
+                </div>
 
-          <div class="media-right margin">
-            <span class="icon is-medium" style='margin-left: -40px'>
+                <div class="media-right margin">
+                    <span class="icon is-medium" style='margin-left: -40px'>
               <i class="fa fa-search"></i>
             </span>
-            <input class="input" type="text"
-              style='background-color: rgba(30, 30, 30, 0.2); color: white; width: 150px;
+                    <input class="input" type="text" style='background-color: rgba(30, 30, 30, 0.2); color: white; width: 200px;
               border: none; border-radius: 20px'>
-            </input>
-          </div>
+                        </input>
+                </div>
 
-          <div class="media-right">
-            <!--
+                <div class="media-right">
+                    <!--
             <span class="tag is-large margin" style='background-color: rgba(30, 30, 30, 0.2)'>
               <figure class="image is-32x32">
                 <img src="../img/Profile.png">
@@ -51,25 +52,25 @@
               </h1>
             </span>
           -->
-            <figure class="image is-32x32 margin">
-              <img src="../img/Profile.png">
-            </figure>
-          </div>
+                    <figure class="image is-32x32 margin">
+                        <img src="../img/Profile.png">
+                    </figure>
+                </div>
 
-          <div class="media-right">
-            <figure class="image is-32x32 margin">
-              <img src="../img/Calendar.png">
-            </figure>
-          </div>
+                <div class="media-right">
+                    <figure class="image is-32x32 margin">
+                        <img src="../img/Calendar.png">
+                    </figure>
+                </div>
 
-          <div class="media-right">
-            <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
+                <div class="media-right">
+                    <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
               Logout
             </a>
-          </div>
+                </div>
 
-        </div>
-      </section>
+            </div>
+        </section>
     </div>
 
     <!--
@@ -86,91 +87,91 @@
     -->
 
     <section class='section'>
-      <div class='columns'>
+        <div class='columns'>
 
-        <div class='column is-3 is-narrow' style='margin-top: 50px; z-index: 1;'>
-          <div class='card'>
-            <div class='card-image'>
-              <figure class="image" style='height: 100% width: 100%'>
-                <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
-              </figure>
-              <a class="button is-primary">Upload</a>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4">{{user.first_name}} {{user.last_name}}</p>
-                  <p class="subtitle is-6">@anncutieme</p>
-                </div>
-              </div>
+            <div class='column is-3 is-narrow' style='margin-top: 50px; z-index: 1;'>
+                <div class='card'>
+                    <div class='card-image'>
+                        <figure class="image" style='height: 100% width: 100%'>
+                            <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+                        </figure>
+                        <a class="button is-primary">Upload</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">{{user.first_name}} {{user.last_name}}</p>
+                                <p class="subtitle is-6">@johnsmith</p>
+                            </div>
+                        </div>
 
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <hr/>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                        <hr/>
 
-              <div class='subtitle reduceMargin'>
-                Age
-              </div>
-              <div class="content reduceMargin">
-               <p>{{user.age}}</p>
-              </div>
-              <hr/>
+                        <div class='subtitle reduceMargin'>
+                            Age
+                        </div>
+                        <div class="content reduceMargin">
+                            <p>{{user.age}}</p>
+                        </div>
+                        <hr/>
 
-              <div class='subtitle reduceMargin'>
-                Location
-              </div>
-              <div class="content reduceMargin">
-                 <p>{{user.city}}</p>
-              </div>
-              <hr/>
+                        <div class='subtitle reduceMargin'>
+                            Location
+                        </div>
+                        <div class="content reduceMargin">
+                            <p>{{user.city}}</p>
+                        </div>
+                        <hr/>
 
-              <div class='subtitle reduceMargin'>
-                Goal
-              </div>
-              <div class="content reduceMargin">
-                Bulk
-              </div>
-              <hr/>
+                        <div class='subtitle reduceMargin'>
+                            Goal
+                        </div>
+                        <div class="content reduceMargin">
+                            Bulk
+                        </div>
+                        <hr/>
 
-              <div class='subtitle reduceMargin'>
-                Weight
-              </div>
-              <div class="content reduceMargin">
-                <p>{{user.weight_current}} lbs</p>
-              </div>
+                        <div class='subtitle reduceMargin'>
+                            Weight
+                        </div>
+                        <div class="content reduceMargin">
+                            <p>{{user.weight_current}} lbs</p>
+                        </div>
 
-              <div class='subtitle reduceMargin'>
-                Height
-              </div>
-              <div class="content reduceMargin">
-                <p>{{user.height}}</p>
-              </div>
+                        <div class='subtitle reduceMargin'>
+                            Height
+                        </div>
+                        <div class="content reduceMargin">
+                            <p>{{user.height}}</p>
+                        </div>
 
-              <hr/>
-              <nav class='panel margin'>
-                <p class="panel-heading">
-                  Spotters
-                </p>
-                <a class="panel-block is-active">
+                        <hr/>
+                        <nav class='panel margin'>
+                            <p class="panel-heading">
+                                Spotters
+                            </p>
+                            <a class="panel-block is-active">
                   Jack Jones
                 </a>
-                <a class="panel-block">
+                            <a class="panel-block">
                   John Smith
                 </a>
-                <a class="panel-block">
+                            <a class="panel-block">
                   Jessie
                 </a>
-              </nav>
+                        </nav>
 
-              <a class="button is-primary"><i class="fa fa-book"></i><p style='margin-left: 8px'>Edit</p></a>
+                        <a class="button is-primary"><i class="fa fa-book"></i><p style='margin-left: 8px'>Edit</p></a>
 
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class='column' style='margin-top: 50px;'>
-          <!--
+            <div class='column' style='margin-top: 50px;'>
+                <!--
           <div class="tabs">
             <ul>
               <li class="is-active"><a>Achievements</a></li>
@@ -182,70 +183,70 @@
             <b>Achievements</b>
           </div>
         -->
-          <p class="control has-addons">
-            <button id="btn-achievement" class="button is-primary is-large" ng-click="viewAchievement()">Achievements</button>
-            <button id="btn-posts" class="button is-primary is-large is-outlined" ng-click="viewPosts()">Posts</button>
-            <button id="btn-schedule" class="button is-primary is-large is-outlined" ng-click="viewSchedule()">Schedule</button>
-          </p>
+                <p class="control has-addons">
+                    <button id="btn-achievement" class="button is-primary is-large" ng-click="viewAchievement()">Achievements</button>
+                    <a id="btn-posts" class="button is-primary is-large is-outlined" href="./home.html">Posts</a>
+                    <button id="btn-schedule" class="button is-primary is-large is-outlined" ng-click="viewSchedule()">Schedule</button>
+                </p>
 
 
-        <div id="profile-overview">
-			<div ng-repeat="achievement in achievements">
-			  <section class='section'>
+                <div id="profile-overview">
+                    <div ng-repeat="achievement in achievements">
+                        <section class='section'>
 
-				  <div class='columns'>
+                            <div class='columns'>
 
-					<figure class="image is-96x96 margin">
-					  <img src="../img/strength.png">
-					</figure>
+                                <figure class="image is-96x96 margin">
+                                    <img src="../img/strength.png">
+                                </figure>
 
-					<p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
-					  <b>{{achievement.category}}</b>
-					  <button class="button is-medium is-outlined is-primary" ng-click="openAddExerciseCard(achievement.category)">
+                                <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                                    <b>{{achievement.category}}</b>
+                                    <button class="button is-medium is-outlined is-primary" ng-click="openAddExerciseCard(achievement.category)">
 						<b>+</b>
 					  </button>
-					</p>
+                                </p>
 
-				  </div>
+                            </div>
 
-			  </section>
-			<div ng-repeat="exercise in achievement.exercises">
-			  <div class="card margin">
-				<div class="card-content">
-				  <div class="media">
-					<div class="media-left">
-					  <p class='title is-1'>{{exercise.name}}</p>
-					</div>
-					<div class="media-content">
-					  <div style="border-left:1px solid gray;height:70px">
-						<p class='title is-1' style='margin-left: 25px'>
-						<span ng-if="exercise.measurement == 'LB'">
+                        </section>
+                        <div ng-repeat="exercise in achievement.exercises">
+                            <div class="card margin">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <p class='title is-1'>{{exercise.name}}</p>
+                                        </div>
+                                        <div class="media-content">
+                                            <div style="border-left:1px solid gray;height:70px">
+                                                <p class='title is-1' style='margin-left: 25px'>
+                                                    <span ng-if="exercise.measurement == 'LB'">
 						  <b>{{exercise.weight}}</b> {{exercise.measurement}}
 						  </span>
-						  <span ng-if="exercise.measurement == 'KG'">
+                                                    <span ng-if="exercise.measurement == 'KG'">
 						  <b>{{exercise.weight}}</b> {{exercise.measurement}}
 						  </span>
-						  <span ng-if="exercise.measurement == 'minutes'">
+                                                    <span ng-if="exercise.measurement == 'minutes'">
 						  <b>{{exercise.time}}</b> {{exercise.measurement}}
 						  </span>
-						</p>
-					  </div>
-					</div>
-					<div class="media-right">
-					  <a class="delete"></a>
-					</div>
-				  </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="media-right">
+                                            <a class="delete"></a>
+                                        </div>
+                                    </div>
 
-				  <div class="content">
-					<progress class="progress margin is-primary" value="75" max="100"></progress>
+                                    <div class="content">
+                                        <progress class="progress margin is-primary" value="75" max="100"></progress>
 
-					<div class="media">
-					  <div class="media-left">
-						<small>{{exercise.planned_date}}</small>
-					  </div>
-					  <div class="media-content"></div>
-					  <div class="media-right">
-						<small>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <small>{{exercise.planned_date}}</small>
+                                            </div>
+                                            <div class="media-content"></div>
+                                            <div class="media-right">
+                                                <small>
 						  <span ng-if="exercise.measurement == 'LB'">
 						  <b>Goal {{exercise.weight}}</b> {{exercisemeasurement}}
 						  </span>
@@ -256,240 +257,298 @@
 						  <b>Goal {{exercise.time}}</b> {{exercise.measurement}}
 						  </span>
 						</small>
-					  </div>
-					</div>
-					</div>
-				  </div>
-				</div>
-			</div>
-          </div>
-          <div class="card margin">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <p class='title is-1'>Squat</p>
-                </div>
-                <div class="media-content">
-                  <div style="border-left:1px solid gray;height:70px">
-                    <p class='title is-1' style='margin-left: 25px'>
-                      <b>250</b> LBS
-                    </p>
-                  </div>
-                </div>
-                <div class="media-right">
-                  <a class="delete"></a>
-                </div>
-              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card margin">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <p class='title is-1'>Squat</p>
+                                </div>
+                                <div class="media-content">
+                                    <div style="border-left:1px solid gray;height:70px">
+                                        <p class='title is-1' style='margin-left: 25px'>
+                                            <b>250</b> LBS
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <a class="delete"></a>
+                                </div>
+                            </div>
 
-              <div class="content">
-                <progress class="progress margin is-primary" value="90" max="100"></progress>
+                            <div class="content">
+                                <progress class="progress margin is-primary" value="90" max="100"></progress>
 
-                <div class="media">
-                  <div class="media-left">
-                    <small>11:30 PM - 2 Feb 2016</small>
-                  </div>
-                  <div class="media-content"></div>
-                  <div class="media-right">
-                    <small>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <small>11:30 PM - 2 Feb 2016</small>
+                                    </div>
+                                    <div class="media-content"></div>
+                                    <div class="media-right">
+                                        <small>
                       Goal <b>280</b> LBS
                     </small>
-                  </div>
-                </div>
+                                    </div>
+                                </div>
 
-              </div>
-            </div>
-          </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
-          <section class='section'>
-            <hr/>
-            <div class='columns'>
+                    <section class='section'>
+                        <hr/>
+                        <div class='columns'>
 
-              <figure class="image is-96x96 margin">
-                <img src="../img/cardio.png">
-              </figure>
+                            <figure class="image is-96x96 margin">
+                                <img src="../img/cardio.png">
+                            </figure>
 
-              <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
-                <b>C A R D I O</b>
-                <a class="button is-medium is-outlined is-primary">
-                  <b>+</b>
-                </a>
-              </p>
+                            <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                                <b>C A R D I O</b>
+                                <a class="button is-medium is-outlined is-primary">
+                                    <b>+</b>
+                                </a>
+                            </p>
 
-            </div>
-          </section>
+                        </div>
+                    </section>
 
-          <div class="card margin">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <p class='title is-1'>Treadmill</p>
-                </div>
-                <div class="media-content">
-                  <div style="border-left:1px solid gray;height:70px">
-                    <p class='title is-1' style='margin-left: 25px'>
-                      <b>10</b> MIN
-                    </p>
-                  </div>
-                </div>
-                <div class="media-right">
-                  <a class="delete"></a>
-                </div>
-              </div>
+                    <div class="card margin">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <p class='title is-1'>Treadmill</p>
+                                </div>
+                                <div class="media-content">
+                                    <div style="border-left:1px solid gray;height:70px">
+                                        <p class='title is-1' style='margin-left: 25px'>
+                                            <b>10</b> MIN
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <a class="delete"></a>
+                                </div>
+                            </div>
 
-              <div class="content">
-                <progress class="progress margin is-primary" value="20" max="100"></progress>
+                            <div class="content">
+                                <progress class="progress margin is-primary" value="20" max="100"></progress>
 
-                <div class="media">
-                  <div class="media-left">
-                    <small>11:09 PM - 1 Jan 2016</small>
-                  </div>
-                  <div class="media-content"></div>
-                  <div class="media-right">
-                    <small>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <small>11:09 PM - 1 Jan 2016</small>
+                                    </div>
+                                    <div class="media-content"></div>
+                                    <div class="media-right">
+                                        <small>
                       Goal <b>50</b> MIN
                     </small>
-                  </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
-            </div>
-          </div>
-        </div>
 
+                <div id="exercise-card" style="display:none">
+                    <div class="card margin">
+                        <div class="card-content">
 
-        <div id="exercise-card" style="display:none">
-			<div class="card margin">
-				<div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
 
-				  <div class="media">
-					<div class="media-left">
-
-					  <nav class="level">
-						<p class='title is-2' style='margin-right: 20px'>Exercise</p>
-						<span class="select is-large" >
+                                    <nav class="level">
+                                        <p class='title is-2' style='margin-right: 20px'>Exercise</p>
+                                        <span class="select is-large">
 						  <select ng-model="newExercise.selectedExercise" ng-options="exerciseNames in exerciseList">
 						  </select>
 						</span>
-					  </nav>
+                                    </nav>
 
-					</div>
-				  </div>
+                                </div>
+                            </div>
 
-				  <hr/>
+                            <hr/>
 
-				  <nav class="level" style='margin-top: -30px'>
-					<div class="level-left">
-					  <div class="level-item">
-						<p class='title is-2' style='width: 240px'>Max</p>
-						<input class="input" type="text" placeholder="Achievement" ng-model="newExercise.selectedMax">
-						<figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
-						  <img src="../img/Trophy.png">
-						</figure>
-					  </div>
-					</div>
-				  </nav>
+                            <nav class="level" style='margin-top: -30px'>
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <p class='title is-2' style='width: 240px'>Max</p>
+                                        <input class="input" type="text" placeholder="Achievement" ng-model="newExercise.selectedMax">
+                                        <figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
+                                            <img src="../img/Trophy.png">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </nav>
 
-				  <nav class="level" style='margin-top: -60px'>
-					<div class="level-left">
-					  <div class="level-item">
-						<p class='title is-2' style='width: 240px'>Goal</p>
-						<input class="input" type="text" placeholder="Goal" ng-model="newExercise.selectedGoal">
-						<figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
-						  <img src="../img/Flag.png">
-						</figure>
-					  </div>
-					</div>
-				  </nav>
+                            <nav class="level" style='margin-top: -60px'>
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <p class='title is-2' style='width: 240px'>Goal</p>
+                                        <input class="input" type="text" placeholder="Goal" ng-model="newExercise.selectedGoal">
+                                        <figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
+                                            <img src="../img/Flag.png">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </nav>
 
-				  <button class='button is-primary is-medium' style='margin-top: -30px' ng-click="addExercise()">
+                            <button class='button is-primary is-medium' style='margin-top: -30px' ng-click="addExercise()">
 					Add
 				  </button>
-				  <a class='button is-medium' style='margin-left: 5px; margin-top: -30px'>
+                            <a class='button is-medium' style='margin-left: 5px; margin-top: -30px'>
 					Cancel
 				  </a>
 
-				</div>
-			</div>
-        </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <style>
+                    #map {
+                        height: 400px;
+                        width: 100%;
+                    }
+                </style>
+
+                <div id="map"></div>
+                <script>
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: {
+                                lat: 0,
+                                lng: 0
+                            },
+                            zoom: 3,
+                            styles: [{
+                                    featureType: 'poi',
+                                    stylers: [{
+                                        visibility: 'off'
+                                    }] // Turn off POI.
+                                },
+                                {
+                                    featureType: 'transit.station',
+                                    stylers: [{
+                                        visibility: 'off'
+                                    }] // Turn off bus, train stations etc.
+                                }
+                            ],
+                            disableDoubleClickZoom: true,
+                            streetViewControl: false,
+                        });
+
+
+                        // Listen for clicks and add the location of the click to firebase.
+                        map.addListener('click', function(e) {
+                            var data = JSON.stringify({
+                                "lat": e.latLng.lat(),
+                                "lng": e.latLng.lng()
+                            });
+
+                            var myLatlng = {
+                                lat: e.latLng.lat(),
+                                lng: e.latLng.lng()
+                            };
+
+                            var marker = new google.maps.Marker({
+                                "position": myLatlng,
+                                "map": map
+                            });
+                        });
+                    }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHxKiuYyoXKyDsFFCV-1ysHsEwT4Eze5Q&callback=initMap">
+                </script>
 
 
 
 
-		 <div id="schedule-overview" style="display:none">
-          <section class='section'>
-            <hr/>
-            <div class='columns'>
+                <div id="schedule-overview" style="display:none">
+                    <section class='section'>
+                        <hr/>
+                        <div class='columns'>
 
-              <figure class="image is-96x96 margin">
-                <img src="../img/Calendar.png">
-              </figure>
+                            <figure class="image is-96x96 margin">
+                                <img src="../img/Calendar.png">
+                            </figure>
 
-              <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
-                <b>S C H E D U L E</b>
-                <a class="button is-medium is-outlined is-primary">
-                  <b>+</b>
-                </a>
-              </p>
+                            <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                                <b>S C H E D U L E</b>
+                                <a class="button is-medium is-outlined is-primary">
+                                    <b>+</b>
+                                </a>
+                            </p>
 
+                        </div>
+                    </section>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th><abbr title="Time">Time</abbr></th>
+                                <th>Exercise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>5:30 pm</td>
+                                <td>Chest</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>5:30 pm</td>
+                                <td>Core</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>6:30 pm</td>
+                                <td>Cardio</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>5:30 pm</td>
+                                <td>Arms</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>8:30 pm</td>
+                                <td>Back</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>10:00 am</td>
+                                <td>Legs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </section>
 
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th><abbr title="Time">Time</abbr></th>
-                <th>Exercise</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Monday</td>
-                <td>5:30 pm</td>
-                <td>Chest</td>
-              </tr>
-              <tr>
-                <td>Tuesday</td>
-                <td>5:30 pm</td>
-                <td>Core</td>
-              </tr>
-              <tr>
-                <td>Wednesday</td>
-                <td>6:30 pm</td>
-                <td>Cardio</td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>5:30 pm</td>
-                <td>Arms</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>8:30 pm</td>
-                <td>Back</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td>10:00 am</td>
-                <td>Legs</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
         </div>
-
-      </div>
     </section>
 
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-  <script src="../views/view.js"></script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="../views/view.js"></script>
+
 </html>

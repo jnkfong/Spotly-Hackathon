@@ -28,7 +28,7 @@
             <h1 id="title-name" class='title titleText is-3 margin'>
               <b>SPOTLY</b>
             </h1>
-          </div>   
+          </div>
 
           <div class="media-right margin">
             <span class="icon is-medium" style='margin-left: -40px'>
@@ -39,10 +39,10 @@
               border: none; border-radius: 20px'>
             </input>
           </div>
-        
+
           <div class="media-right">
             <figure class="image is-32x32 margin">
-              <img src="../img/Profile.png">
+              <a href="/profile.html"><img src="../img/Profile.png"></a>
             </figure>
           </div>
 
@@ -53,23 +53,23 @@
           </div>
 
           <div class="media-right">
-            <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
+            <a href="./index.html" class='button margin is-primary is-inverted' style='margin-right: 15px'>
               Logout
             </a>
           </div>
 
         </div>
       </section>
-      
+
     </div>
 
-  
+
     <section class='section'>
         <div class='container' style='margin-top: 50px'>
           <div class='columns'>
             <div class='column is-2'>
               <figure class="image" style='height: 100% width: 100%'>
-                <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+                <a href="profile.html"><img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png"></a>
               </figure>
               <p class='title is-4 margin' style='text-align: center'>Ann McMaster</p>
             </div>
@@ -80,8 +80,8 @@
                 Share :)
               </a>
               <hr/>
-              
-              
+
+
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -95,11 +95,11 @@
                       <p class="subtitle is-6">@johnsmith</p>
                     </div>
                   </div>
-              
+
                   <div class="content">
                     Does Trump even lift? <a>@RealDonaldTrump</a>.
                     <a>#murica</a>
-                    
+
                     <nav class="level margin">
                       <div class="level-left">
                         <small>10:00 PM - 5 Jan 2016</small>
@@ -109,18 +109,19 @@
                           <span class="icon is-small"><i class="fa fa-reply"></i></span>
                         </a>
                         <a class="level-item">
-                          <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+                          <span class="icon is-small" ng-click="retweets = retweets+1" ng-init="retweets=1"><i class="fa fa-retweet"><br />{{retweets}}</i></span>
+
                         </a>
                         <a class="level-item">
-                          <span class="icon is-small"><i class="fa fa-heart">
-                            69
+                          <span class="icon is-small" ng-click="count = count+1" ng-init="count=15" ><i class="fa fa-heart">
+                            {{count}}
                           </i></span>
                         </a>
                       </div>
                     </nav>
-                    
+
                   </div>
-                  
+
                   <aside class='menu'>
                     <p class="menu-label">
                       Comments
@@ -138,7 +139,7 @@
                           </nav>
                         </a>
                       </li>
-                      
+
                       <li>
                         <a>
                           <nav class="level">
@@ -151,7 +152,7 @@
                           </nav>
                         </a>
                       </li>
-                      
+
                       <li>
                         <a>
                           <nav class="level">
@@ -166,11 +167,11 @@
                       </li>
                     </ul>
                   </aside>
-                  
+
                 </div>
               </div>
-              
-              
+
+
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -184,23 +185,23 @@
                       <p class="subtitle is-6">@anncutieme</p>
                     </div>
                   </div>
-              
+
                   <div class="content">
                     Workout was LIT! XOXO <a>@chadly</a>
                     <a>#feeltheburn</a> <a>#thicc</a>
                     <br>
                     <small>11:09 PM - 2 Jan 2016</small>
                   </div>
-                  
+
                   <footer class="card-footer" style='margin-bottom: -15px; margin-top: -10px'>
                     <a class="card-footer-item">Edit</a>
                     <a class="card-footer-item">Delete</a>
                   </footer>
                 </div>
               </div>
-              
-              
-              
+
+
+
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -214,12 +215,12 @@
                       <p class="subtitle is-6">@chadly</p>
                     </div>
                   </div>
-              
+
                   <div class="content">
                     Broke my record :D
                     <a>#legday</a>
                     <br>
-                    
+
                     <div class="media margin">
                       <div class="media-left">
                         <p class='title is-4'>Squat</p>
@@ -237,7 +238,7 @@
                         </small>
                       </div>
                     </div>
-                    
+
                     <progress class="progress margin is-primary" value="80" max="100"></progress>
                     <nav class="level">
                       <div class="level-left">
@@ -260,12 +261,12 @@
                   </div>
                 </div>
               </div>
-              
-              
-              
-              
-              
-              
+
+
+
+
+
+
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -279,16 +280,16 @@
                       <p class="subtitle is-6">@anncutieme</p>
                     </div>
                   </div>
-              
+
                   <div class="content">
                     Checkout my new schedule.
                     <br>
-                    
+
                     <div class='level'>
                       <div class="level-left">
                        <div class="level-item">
                         <figure class="image is-48x48">
-                          <img src="../img/Calendar.png">
+                          <a href="profile.html"><img src="../img/Calendar.png"></a>
                         </figure>
                        </div>
                        <div class="level-item">
@@ -298,7 +299,7 @@
                        </div>
                       </div>
                     </div>
-                    
+
                     <table class="table">
                       <thead>
                         <tr>
@@ -345,21 +346,21 @@
                         </tr>
                       </tbody>
                     </table>
-                    
+
                     <small>11:30 PM - 1 Jan 2016</small>
                   </div>
-                  
+
                   <footer class="card-footer" style='margin-bottom: -15px; margin-top: -10px'>
                     <a class="card-footer-item">Edit</a>
                     <a class="card-footer-item">Delete</a>
                   </footer>
                 </div>
               </div>
-              
 
-              
+
+
             </div>
-            
+
             <div class='column is-3'>
               <p class='title is-5 margin'>Sponsored</p>
               <figure class="image" style='height: 100% width: 100%'>
@@ -369,11 +370,11 @@
                 <img src="../img/ad2.jpg" alt="../img/default_profile_pic.png">
               </figure>
             </div>
-            
-            
+
+
           </div>
         </div>
-        
+
       </section>
 
   </body>

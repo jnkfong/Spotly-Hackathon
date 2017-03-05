@@ -73,11 +73,11 @@ app.post('/getAchievements', jsonParser, function(req, res) {
     Achievement.find({
         'username': req.body.profile
     }, function(err, achievement) {
-        console.log('get achievements for profile:' + req.body.profile);
+        // console.log('get achievements for profile:' + req.body.profile);
         if (err) {
             res.send(err);
         } else {
-            console.log(achievement)
+            // console.log(achievement)
             res.send({'category': achievement[0]['category'],'exercise':achievement[0]['exercise']}); // return user object
         }
     });
@@ -88,7 +88,7 @@ app.get('/getExercises', jsonParser, function(req, res) {
     Achievement.collection.distinct(req.body.achievement)
     }, function(err, achievement) {
         // console.log('Profile:' + req.body.profile);
-        console.log('Achievement:' + req.body.achievement);
+        // console.log('Achievement:' + req.body.achievement);
         if (err) {
             res.send(err);
         } else {
