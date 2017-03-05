@@ -71,6 +71,19 @@ app.post('/getProfile', jsonParser, function(req,res){
   });
 });
 
+/** Get Achievements list object by Username **/
+app.post('/getAchievements', jsonParser, function(req,res){
+  User.find({'username':req.body.profile},function(err,user){
+    console.log('Profile:'+req.body.profile);
+    if (err){
+        res.send(err);
+    }else{
+        res.json(user['achievements']); // return user object in JSON format
+    }
+  });
+});
+
+
 
 
 
