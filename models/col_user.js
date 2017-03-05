@@ -14,7 +14,6 @@ const UserSchema = new Schema({
   weight_goal:{ type: Number, default: '' },
   weight_current:{ type: String, default: '',required:true },
   body_fat_percentage:{type:Number,default:0},
-  achievements:[{type:Schema.Types.ObjectId,ref:Achievement}],
   subscription_status:{type:Boolean,required:true},
   email:{type:String,required:true},
   username:{type:String,required:true},

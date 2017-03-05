@@ -40,6 +40,9 @@ app.controller('profileController', function($scope, $http){
                 alert(response);
             });
 
+
+
+
 		var data = JSON.stringify({profile:getCookie("profile")});
 		var config = { headers : {'Content-Type': 'application/json'}};
 		$http.post('./getAchievements', data, config)
@@ -53,7 +56,23 @@ app.controller('profileController', function($scope, $http){
 				}, function errorCallback(response, status, header, config) {
 					alert(response);
 				});
+
+      $http.get('./getExercises')
+                  .then(function successCallback(response, status, headers, config) {
+                     if(typeof response.data !== 'string' ){
+      				  $scope.exerciseList = response.data;
+      			   }
+      			   else{
+      				   $scope.addAchievement = null;
+      				   alert(response.data);
+      			   }
+                  }, function errorCallback(response, status, header, config) {
+                      alert(response);
+                  });
+
 			});
+
+
 
 
 	$scope.editUser = function () {
@@ -73,23 +92,8 @@ app.controller('profileController', function($scope, $http){
 
         };
 
-	$scope.getExercises = function(){
-            $http.get('./getExercises')
-            .then(function successCallback(response, status, headers, config) {
-               if(typeof response.data !== 'string' ){
-				  $scope.exerciseList = response.data;
-			   }
-			   else{
-				   $scope.addAchievement = null;
-				   alert(response.data);
-			   }
-            }, function errorCallback(response, status, header, config) {
-                alert(response);
-            });
-	}
-
 	$scope.addAchievement = function(achievementName){
-		
+
 		$scope.getExercises();
 		if(document.getElementById(exercise-card).style.display === "none"){
 			document.getElementById(exercise-card).style.display = "block";
@@ -99,7 +103,7 @@ app.controller('profileController', function($scope, $http){
 	}
 
 	$scope.addExercise = function(){
-		var data = JSON.stringify({$scope.newExercise});
+		var data = JSON.stringify({'new_exercise':$scope.newExercise},{profile:getCookie("profile")});
 		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./addExercise', data, config)
             .then(function successCallback(response, status, headers, config) {
@@ -115,7 +119,7 @@ app.controller('profileController', function($scope, $http){
             }, function errorCallback(response, status, header, config) {
                 alert(response);
             });
-			
+
 	}
 
 	$scope.viewSchedule = function(){

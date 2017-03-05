@@ -4,9 +4,9 @@ const Exercise = require('./col_exercise.js');
 const User = require('./col_user.js');
 
 const AchievementSchema = new Schema({
-  user_id:[{type: Schema.Types.ObjectId,ref:User}],
+  username:{type:String,required:true},
   category: {type:String,default:'',required:true},
-  exercises:[{type: Schema.Types.ObjectId,ref:Exercise}]
+  exercises:{type:String,default:'',required:true},
 })
 
 exports.AchievementSchema = AchievementSchema;

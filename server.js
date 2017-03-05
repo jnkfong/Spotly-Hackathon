@@ -70,30 +70,24 @@ app.post('/getProfile', jsonParser, function(req, res) {
 
 /** Get Achievements list object by Username **/
 app.post('/getAchievements', jsonParser, function(req, res) {
-    User.find({
+    Achievement.find({
         'username': req.body.profile
-    }, function(err, user) {
-        console.log('Profile:' + req.body.profile);
+    }, function(err, achievement) {
+        console.log('get achievements for profile:' + req.body.profile);
         if (err) {
             res.send(err);
         } else {
-            res.json({'achievements': user['achievements']}); // return user object
+            console.log(achievement)
+            res.send({'category': achievement[0]['category'],'exercise':achievement[0]['exercise']}); // return user object
         }
     });
 });
 
 /** Get Exercises list objects by achievement **/
-app.post('/getExercises', jsonParser, function(req, res) {
-    Achievement.find({
-        $and: [
-            {
-                'username': req.body.profile
-            }, {
-                'achievement': req.body.achievement
-            }
-        ]
+app.get('/getExercises', jsonParser, function(req, res) {
+    Achievement.collection.distinct(req.body.achievement)
     }, function(err, achievement) {
-        console.log('Profile:' + req.body.profile);
+        // console.log('Profile:' + req.body.profile);
         console.log('Achievement:' + req.body.achievement);
         if (err) {
             res.send(err);
@@ -101,7 +95,7 @@ app.post('/getExercises', jsonParser, function(req, res) {
             res.json({'exercises': achievement['exercises']}); // return exercise object list
         }
     });
-});
+
 
 app.post('/getUsers',jsonParser, function(req, res) {
     //get all users in db
@@ -116,7 +110,7 @@ app.post('/getUsers',jsonParser, function(req, res) {
 
 /** Create Exercise objects **/
 //angular
-app.post('/createExercise', jsonParser, function(req, res) {
+app.post('/_createExercise', jsonParser, function(req, res) {
     //   var new_exercise = new Exercise({
     //   name:req.body.exercise.name,
     //   type:req.body.exercise.type,
@@ -155,25 +149,31 @@ app.post('/createExercise', jsonParser, function(req, res) {
     });
 });
 
-/** Create Achievement objects **/
-app.post('/createAchievement', jsonParser, function(req, res) {
+/** createAchievement is now createExercise objects **/
+app.post('/createExercise', jsonParser, function(req, res) {
 
     var user_obj = User.findOne({'username': profile});
+    Achievement.find({}, function(err, all_achievements) {
+        if (err) {
+            res.send(err);
+        }
+    });
 
     var new_achievement = new Achievement({
         //@TODO: match with view.js params
         user_id: user_obj._id,
-        category: req.body.category,
+        category: req.body.exercise.category,
         exercise: req.body.exercise
     });
-    new_achievement.save(function(err,new_achievement){
-      if (err) {
-          res.send(err);
-      } else {
-          // res.json({'exerci':achievement['exercises']}); // return exercise object list
-          res.send(new_achievement);
-      }
-});
+    new_achievement.save(function(err, new_achievement) {
+        if (err) {
+            res.send(err);
+        } else {
+            // res.json({'exerci':achievement['exercises']}); // return exercise object list
+            res.send(new_achievement);
+            res.send(all_achievements)
+        }
+    });
 });
 
 app.post('/createUser', jsonParser, function(req, res) {
