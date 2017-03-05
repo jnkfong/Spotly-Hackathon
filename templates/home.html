@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="spotly">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Spotly</title>
+
+    <link href="../theme/css/base.css" rel="stylesheet">
+    <link href="../theme/css/bulma.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body ng-controller="profileController">
+    <div style='position: fixed; width: 100%; z-index: 2;'>
+
+      <section class='hero is-primary headerSmall'>
+        <div class="media">
+
+          <div class="media-left">
+            <figure class="image is-32x32 margin" style='margin-left: 15px'>
+              <img src="../img/logo.png">
+            </figure>
+          </div>
+
+          <div class="media-content">
+            <h1 id="title-name" class='title titleText is-3 margin'>
+              <b>SPOTLY</b>
+            </h1>
+          </div>   
+
+          <div class="media-right margin">
+            <span class="icon is-medium" style='margin-left: -40px'>
+              <i class="fa fa-search"></i>
+            </span>
+            <input class="input" type="text"
+              style='background-color: rgba(30, 30, 30, 0.2); color: white; width: 150px;
+              border: none; border-radius: 20px'>
+            </input>
+          </div>
+        
+          <div class="media-right">
+            <figure class="image is-32x32 margin">
+              <img src="../img/Profile.png">
+            </figure>
+          </div>
+
+          <div class="media-right">
+            <figure class="image is-32x32 margin">
+              <img src="../img/Calendar.png">
+            </figure>
+          </div>
+
+          <div class="media-right">
+            <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
+              Logout
+            </a>
+          </div>
+
+        </div>
+      </section>
+      
+    </div>
+
+  
+    <section class='section'>
+        <div class='container' style='margin-top: 50px'>
+          <div class='columns'>
+            <div class='column is-2'>
+              <figure class="image" style='height: 100% width: 100%'>
+                <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+              </figure>
+              <p class='title is-4 margin' style='text-align: center'>Ann McMaster</p>
+            </div>
+            <div class='column is-6'>
+              <label class="title is-2">Post</label>
+              <textarea class="textarea margin" placeholder="Share your achievements!"></textarea>
+              <a class='button margin is-primary is-large' style=''>
+                Share :)
+              </a>
+              <hr/>
+              
+              
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image" style="height: 50px; width: 50px;">
+                        <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">John Smith</p>
+                      <p class="subtitle is-6">@johnsmith</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    Does Trump even lift? <a>@RealDonaldTrump</a>.
+                    <a>#murica</a>
+                    
+                    <nav class="level margin">
+                      <div class="level-left">
+                        <small>10:00 PM - 5 Jan 2016</small>
+                      </div>
+                      <div class="level-right">
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-reply"></i></span>
+                        </a>
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+                        </a>
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-heart">
+                            69
+                          </i></span>
+                        </a>
+                      </div>
+                    </nav>
+                    
+                  </div>
+                  
+                  <aside class='menu'>
+                    <p class="menu-label">
+                      Comments
+                    </p>
+                    <ul class="menu-list">
+                      <li>
+                        <a>
+                          <nav class="level">
+                            <div class="level-left">
+                              <figure class="image" style="height: 30px; width: 30px;">
+                                <img src="../img/guy.jpg" alt="Image">
+                              </figure>
+                              <p style='margin-left: 10px'>Stop trolling bro</p>
+                            </div>
+                          </nav>
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a>
+                          <nav class="level">
+                            <div class="level-left">
+                              <figure class="image" style="height: 30px; width: 30px;">
+                                <img src="../img/profile_girl_thumb.jpg" alt="Image">
+                              </figure>
+                              <p style='margin-left: 10px'>your sh*tposts suck!</p>
+                            </div>
+                          </nav>
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a>
+                          <nav class="level">
+                            <div class="level-left">
+                              <figure class="image" style="height: 30px; width: 30px;">
+                                <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+                              </figure>
+                              <p style='margin-left: 10px'>Love it! :3</p>
+                            </div>
+                          </nav>
+                        </a>
+                      </li>
+                    </ul>
+                  </aside>
+                  
+                </div>
+              </div>
+              
+              
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image" style="height: 50px; width: 50px;">
+                        <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">Ann McMaster</p>
+                      <p class="subtitle is-6">@anncutieme</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    Workout was LIT! XOXO <a>@chadly</a>
+                    <a>#feeltheburn</a> <a>#thicc</a>
+                    <br>
+                    <small>11:09 PM - 2 Jan 2016</small>
+                  </div>
+                  
+                  <footer class="card-footer" style='margin-bottom: -15px; margin-top: -10px'>
+                    <a class="card-footer-item">Edit</a>
+                    <a class="card-footer-item">Delete</a>
+                  </footer>
+                </div>
+              </div>
+              
+              
+              
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image" style="height: 50px; width: 50px;">
+                        <img src="../img/guy.jpg" alt="Image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">Chad</p>
+                      <p class="subtitle is-6">@chadly</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    Broke my record :D
+                    <a>#legday</a>
+                    <br>
+                    
+                    <div class="media margin">
+                      <div class="media-left">
+                        <p class='title is-4'>Squat</p>
+                      </div>
+                      <div class="media-content">
+                        <div style="border-left:1px solid gray;height:30px">
+                          <p class='title is-4' style='margin-left: 25px'>
+                            <b>250</b> LBS
+                          </p>
+                        </div>
+                      </div>
+                      <div class="media-right">
+                        <small>
+                          Goal <b>280</b> LBS
+                        </small>
+                      </div>
+                    </div>
+                    
+                    <progress class="progress margin is-primary" value="80" max="100"></progress>
+                    <nav class="level">
+                      <div class="level-left">
+                        <small>11:30 PM - 1 Jan 2016</small>
+                      </div>
+                      <div class="level-right">
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-reply"></i></span>
+                        </a>
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+                        </a>
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fa fa-heart">
+                            1
+                          </i></span>
+                        </a>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
+              
+              
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image" style="height: 50px; width: 50px;">
+                        <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">Ann McMaster</p>
+                      <p class="subtitle is-6">@anncutieme</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    Checkout my new schedule.
+                    <br>
+                    
+                    <div class='level'>
+                      <div class="level-left">
+                       <div class="level-item">
+                        <figure class="image is-48x48">
+                          <img src="../img/Calendar.png">
+                        </figure>
+                       </div>
+                       <div class="level-item">
+                        <p class='title is-4 brandColor' style='color: #00d1b2'>
+                          <b>S C H E D U L E</b>
+                        </p>
+                       </div>
+                      </div>
+                    </div>
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Day</th>
+                          <th><abbr title="Time">Time</abbr></th>
+                          <th>Exercise</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Monday</td>
+                          <td>5:30 pm</td>
+                          <td>Chest</td>
+                        </tr>
+                        <tr>
+                          <td>Tuesday</td>
+                          <td>5:30 pm</td>
+                          <td>Core</td>
+                        </tr>
+                        <tr>
+                          <td>Wednesday</td>
+                          <td>6:30 pm</td>
+                          <td>Cardio</td>
+                        </tr>
+                        <tr>
+                          <td>Thursday</td>
+                          <td>5:30 pm</td>
+                          <td>Arms</td>
+                        </tr>
+                        <tr>
+                          <td>Friday</td>
+                          <td>8:30 pm</td>
+                          <td>Back</td>
+                        </tr>
+                        <tr>
+                          <td>Saturday</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>Sunday</td>
+                          <td>10:00 am</td>
+                          <td>Legs</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    <small>11:30 PM - 1 Jan 2016</small>
+                  </div>
+                  
+                  <footer class="card-footer" style='margin-bottom: -15px; margin-top: -10px'>
+                    <a class="card-footer-item">Edit</a>
+                    <a class="card-footer-item">Delete</a>
+                  </footer>
+                </div>
+              </div>
+              
+
+              
+            </div>
+            
+            <div class='column is-3'>
+              <p class='title is-5 margin'>Sponsored</p>
+              <figure class="image" style='height: 100% width: 100%'>
+                <img src="../img/ad1.jpg" alt="../img/default_profile_pic.png">
+              </figure>
+              <figure class="image margin" style='height: 100% width: 100%'>
+                <img src="../img/ad2.jpg" alt="../img/default_profile_pic.png">
+              </figure>
+            </div>
+            
+            
+          </div>
+        </div>
+        
+      </section>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script src="../views/view.js"></script>
+</html>
