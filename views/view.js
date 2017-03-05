@@ -1,25 +1,25 @@
 
 var app = angular.module('spotly', []);
-var config = { headers : {'Content-Type': 'application/json'}}
+
 
 app.controller('indexController', function($scope, $http){
    $scope.login = function () {
-			
+
 			var data = JSON.stringify({username: $scope.username, password: $scope.password});
-           
+      var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./login', data, config)
-            .then(function successCallback(data, status, headers, config) {
-               if(typeof data[0].redirect === 'string' && typeof data[1].profile === 'string' ){
-				   document.cookie = "profile=" + data[1].profile;
-				   window.location.replace(data.redirect);
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data.redirect === 'string' && typeof response.data.profile === 'string' ){
+				   document.cookie = "profile=" + response.data.redirect;
+				   window.location.replace(response.data.redirect);
 			   }
 			   else{
 				   alert("User and password are incorrect!");
 			   }
-            }, function errorCallback(data, status, header, config) {
-                alert(data);
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
             });
-			
+
         };
 });
 
@@ -33,7 +33,7 @@ app.controller('profileController', function($scope, $http){
 				$scope.user = data;
 			  }
 			  else{
-				  
+
 			  }
             }, function errorCallback(data, status, header, config) {
                 alert(data);
@@ -55,8 +55,8 @@ app.controller('profileController', function($scope, $http){
 		document.getElementById("schedule-overview").style.display ="none";
 		document.getElementById("profile-overview").style.display ="block";
 	}
-	
-	
+
+
 });
 
 

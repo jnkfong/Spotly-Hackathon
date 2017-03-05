@@ -47,13 +47,13 @@ app.post('/login', jsonParser, function(req, res) {
       res.send(err);
     }else{
       //compare input password with hash
-      console.log(req.body.password);
-      console.log("Username: " +user[0]['username']); //get array element
+      //Debug: console.log("Username: " +user[0]['username']);
+      //Debug: console.log("Password: " +user[0]['password']);
 
       if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
         bcrypt.genSalt(10, function(err, salt) {
           bcrypt.hash(user[0]['username'], salt, function(err, profile) {
-            res.send([{'redirect':'/profile.html'},{'hashed_username':profile}]);
+            res.send(JSON.stringify({'redirect':'/profile.html','profile':profile}));
           });
         });
       }else{
