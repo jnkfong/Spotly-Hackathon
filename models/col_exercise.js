@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ExerciseSchema = new Schema({
   exercise_name:{type: String, default: '', required:true},
-  exercise_type:{type: String, default: '',required:true },
+  exercise_type:{type: String, default: '', required:true},
   exercise_description:{type:String,default:''},
   //depends on exercise_type
   exercise_measurement:{type:String,default:''}, //'kg/lbs' or 'minutes' or '# of reps'

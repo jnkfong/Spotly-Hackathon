@@ -39,18 +39,22 @@ app.controller('profileController', function($scope, $http){
             }, function errorCallback(response, status, header, config) {
                 alert(response);
             });
-		$http.post('./getAcheivements', data, config)
-            .then(function successCallback(response, status, headers, config) {
-              if(typeof response.data != "undefined"){
-				$scope.achievements = response.data;
-			  }
-			  else{
-				window.location.replace("./");
-			  }
-            }, function errorCallback(response, status, header, config) {
-                alert(response);
-            });
-	});
+
+		var data = JSON.stringify({profile:getCookie("profile")});
+		var config = { headers : {'Content-Type': 'application/json'}};
+		$http.post('./getAchievements', data, config)
+				.then(function successCallback(response, status, headers, config) {
+				  if(typeof response.data != "undefined"){
+			$scope.achievements = response.data;
+			}
+			else{
+
+			}
+				}, function errorCallback(response, status, header, config) {
+					alert(response);
+				});
+          });
+
 
 	$scope.editUser = function () {
 		var data = JSON.stringify({edit_user: $scope.edit_user});
