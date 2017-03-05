@@ -201,9 +201,9 @@
 
 					<p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
 					  <b>{{achievement.category}}</b>
-					  <a class="button is-medium is-outlined is-primary">
+					  <button class="button is-medium is-outlined is-primary" ng-click="openAddExerciseCard(achievement.category)">
 						<b>+</b>
-					  </a>
+					  </button>
 					</p>
 
 				  </div>
@@ -359,66 +359,60 @@
         </div>
         
         
-        
-        <div class="card margin">
-            <div class="card-content">
-              
-              <div class="media">
-                <div class="media-left">
-                  
-                  <nav class="level">
-                    <p class='title is-2' style='margin-right: 20px'>Exercise</p>
-                    <span class="select is-large">
-                      <select>
-                        <option>Select...</option>
-                        <option>Bench</option>
-                        <option>Squat</option>
-                        <option>Curl</option>
-                        <option>Row</option>
-                        <option>Overhead</option>
-                      </select>
-                    </span>
-                  </nav>
+        <div id="exercise-card" style="display:none">
+			<div class="card margin">
+				<div class="card-content">
+				  
+				  <div class="media">
+					<div class="media-left">
+					  
+					  <nav class="level">
+						<p class='title is-2' style='margin-right: 20px'>Exercise</p>
+						<span class="select is-large" >
+						  <select ng-model="newExercise.selectedExercise" ng-options="exerciseNames in exerciseList">
+						  </select>
+						</span>
+					  </nav>
 
-                </div>
-              </div>
-              
-              <hr/>
-              
-              <nav class="level" style='margin-top: -30px'>
-                <div class="level-left">
-                  <div class="level-item">
-                    <p class='title is-2' style='width: 240px'>Max</p>
-                    <input class="input" type="text" placeholder="Achievement">
-                    <figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
-                      <img src="../img/Trophy.png">
-                    </figure>
-                  </div>
-                </div>
-              </nav>
-              
-              <nav class="level" style='margin-top: -60px'>
-                <div class="level-left">
-                  <div class="level-item">
-                    <p class='title is-2' style='width: 240px'>Goal</p>
-                    <input class="input" type="text" placeholder="Goal">
-                    <figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
-                      <img src="../img/Flag.png">
-                    </figure>
-                  </div>
-                </div>
-              </nav>
-              
-              <a class='button is-primary is-medium' style='margin-top: -30px'>
-                Add
-              </a>
-              <a class='button is-medium' style='margin-left: 5px; margin-top: -30px'>
-                Cancel
-              </a>
-          
-            </div>
+					</div>
+				  </div>
+				  
+				  <hr/>
+				  
+				  <nav class="level" style='margin-top: -30px'>
+					<div class="level-left">
+					  <div class="level-item">
+						<p class='title is-2' style='width: 240px'>Max</p>
+						<input class="input" type="text" placeholder="Achievement" ng-model="newExercise.selectedMax">
+						<figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
+						  <img src="../img/Trophy.png">
+						</figure>
+					  </div>
+					</div>
+				  </nav>
+				  
+				  <nav class="level" style='margin-top: -60px'>
+					<div class="level-left">
+					  <div class="level-item">
+						<p class='title is-2' style='width: 240px'>Goal</p>
+						<input class="input" type="text" placeholder="Goal" ng-model="newExercise.selectedGoal">
+						<figure class="image is-96x96" style='margin-left: 8px; margin-top: 40px'>
+						  <img src="../img/Flag.png">
+						</figure>
+					  </div>
+					</div>
+				  </nav>
+				  
+				  <button class='button is-primary is-medium' style='margin-top: -30px' ng-click="addExercise()">
+					Add
+				  </button>
+				  <a class='button is-medium' style='margin-left: 5px; margin-top: -30px'>
+					Cancel
+				  </a>
+			  
+				</div>
+			</div>
         </div>
-        
         
         
         
