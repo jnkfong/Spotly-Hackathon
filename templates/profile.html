@@ -13,17 +13,46 @@
 
   </head>
   <body>
-    <figure class="image is-32x32 margin" style='position: fixed; margin-left: 15px'>
-      <img src="../img/logo.png">
-    </figure>
-    <section class='hero is-primary headerSmall'>
-      <div class="container">
-        <h1 class='title titleText is-3 margin'>
-          <b>SPOTLY</b>
-        </h1>
-      </div>
-    </section>
+    <div style='position: fixed; width: 100%; z-index: 2;'>
+      
+      <section class='hero is-primary headerSmall'>
+        <div class="media">
+          
+          <div class="media-left">
+            <figure class="image is-32x32 margin" style='margin-left: 15px'>
+              <img src="../img/logo.png">
+            </figure>
+          </div>
+          
+          <div class="media-content">
+            <h1 class='title titleText is-3 margin'>
+              <b>SPOTLY</b>
+            </h1>
+          </div>
+          
+          <div class="media-right">
+            <figure class="image is-32x32 margin">
+              <img src="../img/Profile.png">
+            </figure>
+          </div>
+          
+          <div class="media-right">
+            <figure class="image is-32x32 margin">
+              <img src="../img/Calendar.png">
+            </figure>
+          </div>
+          
+          <div class="media-right">
+            <a class='button margin is-primary is-inverted' style='margin-right: 15px'>
+              Logout
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
     
+    <!--
     <div class='nav'>
       <div class='nav-right nav-menu'>
         <a class="nav-item button">
@@ -34,16 +63,315 @@
         </a>
       </div>
     </div>
+    -->
     
-    <section class='section' style='background-color: rgba(0,0,0,0)'>
-      <aside class="menu">
-        <figure class="image is-128x128">
-          <img src="../img/logo.png">
-        </figure>
-        <p class="menu-label">
-          John Doe
-        </p>
-      </aside>
+    <section class='section'>
+      <div class='columns'>
+        
+        <div class='column is-3 is-narrow' style='margin-top: 50px; z-index: 1;'>
+          <div class='card'>
+            <div class='card-image'>
+              <figure class="image" style='height: 100% width: 100%'>
+                <img src="../img/profile_girl_thumb.jpg" alt="../img/default_profile_pic.png">
+              </figure>
+              <a class="button is-primary">Upload</a>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">Ann McMaster</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+          
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+              <hr/>
+              
+              <div class='subtitle reduceMargin'>
+                Age
+              </div>
+              <div class="content reduceMargin">
+                21
+              </div>
+              <hr/>
+              
+              <div class='subtitle reduceMargin'>
+                Location
+              </div>
+              <div class="content reduceMargin">
+                Waterloo
+              </div>
+              <hr/>
+              
+              <div class='subtitle reduceMargin'>
+                Goal
+              </div>
+              <div class="content reduceMargin">
+                Bulk
+              </div>
+              <hr/>
+              
+              <div class='subtitle reduceMargin'>
+                Weight
+              </div>
+              <div class="content reduceMargin">
+                160lbs
+              </div>
+              
+              <div class='subtitle reduceMargin'>
+                Height
+              </div>
+              <div class="content reduceMargin">
+                5'11'
+              </div>
+              
+              <a class="button is-primary"><i class="fa fa-book"></i><p style='margin-left: 8px'>Edit</p></a>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class='column' style='margin-top: 50px;'>
+          <!--
+          <div class="tabs">
+            <ul>
+              <li class="is-active"><a>Achievements</a></li>
+              <li><a>Posts</a></li>
+              <li><a>Schedule</a></li>
+            </ul>
+          </div>
+          <div class='tag is-primary' style='margin-left: 10px; height: 100px; width: 400px; font-size: 42px'>
+            <b>Achievements</b>
+          </div>
+        -->
+          <p class="control has-addons">
+            <a class="button is-primary is-large">Achievements</a>
+            <a class="button is-primary is-large is-outlined">Posts</a>
+            <a class="button is-primary is-large is-outlined">Schedule</a>
+          </p>
+          
+          
+          
+          <section class='section'>
+
+              <div class='columns'>
+
+                <figure class="image is-96x96 margin">
+                  <img src="../img/strength.png">
+                </figure>
+
+                <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                  <b>S T R E N G T H</b>
+                  <a class="button is-medium is-outlined is-primary">
+                    <b>+</b>
+                  </a>
+                </p>
+
+              </div>
+
+          </section>
+              
+          <div class="card margin">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <p class='title is-1'>Bench</p>
+                </div>
+                <div class="media-content">
+                  <div style="border-left:1px solid gray;height:70px">
+                    <p class='title is-1' style='margin-left: 25px'>
+                      <b>180</b> LBS
+                    </p>
+                  </div>
+                </div>
+                <div class="media-right">
+                  <a class="delete"></a>
+                </div>
+              </div>
+          
+              <div class="content">
+                <progress class="progress margin is-primary" value="75" max="100"></progress>
+                
+                <div class="media">
+                  <div class="media-left">
+                    <small>11:09 PM - 1 Jan 2016</small>
+                  </div>
+                  <div class="media-content"></div>
+                  <div class="media-right">
+                    <small>
+                      Goal <b>250</b> LBS
+                    </small>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          <div class="card margin">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <p class='title is-1'>Squat</p>
+                </div>
+                <div class="media-content">
+                  <div style="border-left:1px solid gray;height:70px">
+                    <p class='title is-1' style='margin-left: 25px'>
+                      <b>250</b> LBS
+                    </p>
+                  </div>
+                </div>
+                <div class="media-right">
+                  <a class="delete"></a>
+                </div>
+              </div>
+          
+              <div class="content">
+                <progress class="progress margin is-primary" value="90" max="100"></progress>
+                
+                <div class="media">
+                  <div class="media-left">
+                    <small>11:30 PM - 2 Feb 2016</small>
+                  </div>
+                  <div class="media-content"></div>
+                  <div class="media-right">
+                    <small>
+                      Goal <b>280</b> LBS
+                    </small>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <section class='section'>
+            <hr/>
+            <div class='columns'>
+
+              <figure class="image is-96x96 margin">
+                <img src="../img/cardio.png">
+              </figure>
+
+              <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                <b>C A R D I O</b>
+                <a class="button is-medium is-outlined is-primary">
+                  <b>+</b>
+                </a>
+              </p>
+
+            </div>
+          </section>
+              
+          <div class="card margin">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <p class='title is-1'>Treadmill</p>
+                </div>
+                <div class="media-content">
+                  <div style="border-left:1px solid gray;height:70px">
+                    <p class='title is-1' style='margin-left: 25px'>
+                      <b>10</b> MIN
+                    </p>
+                  </div>
+                </div>
+                <div class="media-right">
+                  <a class="delete"></a>
+                </div>
+              </div>
+          
+              <div class="content">
+                <progress class="progress margin is-primary" value="20" max="100"></progress>
+                
+                <div class="media">
+                  <div class="media-left">
+                    <small>11:09 PM - 1 Jan 2016</small>
+                  </div>
+                  <div class="media-content"></div>
+                  <div class="media-right">
+                    <small>
+                      Goal <b>50</b> MIN
+                    </small>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          <section class='section'>
+            <hr/>
+            <div class='columns'>
+
+              <figure class="image is-96x96 margin">
+                <img src="../img/Calendar.png">
+              </figure>
+
+              <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+                <b>S C H E D U L E</b>
+                <a class="button is-medium is-outlined is-primary">
+                  <b>+</b>
+                </a>
+              </p>
+
+            </div>
+          </section>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th><abbr title="Time">Time</abbr></th>
+                <th>Exercise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>5:30 pm</td>
+                <td>Chest</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>5:30 pm</td>
+                <td>Core</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>6:30 pm</td>
+                <td>Cardio</td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td>5:30 pm</td>
+                <td>Arms</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>8:30 pm</td>
+                <td>Back</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>10:00 am</td>
+                <td>Legs</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        
+      </div>
     </section>
     
   </body>

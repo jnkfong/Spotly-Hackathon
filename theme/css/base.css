@@ -23,6 +23,14 @@
   margin-top: 15px;
 }
 
+.brandColor {
+  color: #00d1b2;
+}
+
+.reduceMargin {
+  margin-top: -12px;
+}
+
 .h1, .h2, .div {
   font-family: Avenir;
 }
