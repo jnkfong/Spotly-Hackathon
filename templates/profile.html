@@ -79,7 +79,7 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">Ann McMaster</p>
+                  <p class="title is-4">{{user.first_name}} {{user.last_name}}</p>
                   <p class="subtitle is-6">@johnsmith</p>
                 </div>
               </div>
@@ -93,7 +93,7 @@
                 Age
               </div>
               <div class="content reduceMargin">
-                21
+               <p>{{user.age}}</p>
               </div>
               <hr/>
               
@@ -101,7 +101,7 @@
                 Location
               </div>
               <div class="content reduceMargin">
-                Waterloo
+                 <p>{{user.city}}</p>
               </div>
               <hr/>
               
@@ -117,14 +117,14 @@
                 Weight
               </div>
               <div class="content reduceMargin">
-                160lbs
+                <p>{{user.weight_current}} lbs</p>
               </div>
               
               <div class='subtitle reduceMargin'>
                 Height
               </div>
               <div class="content reduceMargin">
-                5'11'
+                <p>{{user.height}}</p>
               </div>
               
               <a class="button is-primary"><i class="fa fa-book"></i><p style='margin-left: 8px'>Edit</p></a>
