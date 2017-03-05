@@ -19,11 +19,12 @@ const UserSchema = new Schema({
   subscribed_status:{type:Boolean,required:true},
   email:{type:String,required:true},
   username:{type:String,required:true},
+  hashed_username:{type:String},
   password: {type: String, required:true},
 });
 const validatePresenceOf = value => value && value.length;
 
-
+// Hash the password
 UserSchema.pre('save', function(next){
     var user = this;
     if (!user.isModified('password')) return next();
@@ -39,6 +40,24 @@ UserSchema.pre('save', function(next){
         });
     });
 });
+
+// Hash the username
+UserSchema.pre('save', function(next){
+    var user = this;
+    if (!user.isModified('username')) return next();
+
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+        if(err) return next(err);
+
+        bcrypt.hash(user.username, salt, function(err, hash){
+            if(err) return next(err);
+
+            user.hashed_username = hash;
+            next();
+        });
+    });
+});
+
 
   /**
    * Backend Validations (check if existing)

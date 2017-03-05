@@ -38,7 +38,7 @@ app.get('/all_users',function(req,res){
   });
 });
 
-/** Get User object by User and Pass **/
+/** Get hashed Username and redirect link **/
 app.post('/login', jsonParser, function(req, res) {
   // console.dir(req.body.username);
   // console.dir(req.body.password);
@@ -51,11 +51,7 @@ app.post('/login', jsonParser, function(req, res) {
       //Debug: console.log("Password: " +user[0]['password']);
 
       if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
-        bcrypt.genSalt(10, function(err, salt) {
-          bcrypt.hash(user[0]['username'], salt, function(err, profile) {
-            res.send(JSON.stringify({'redirect':'/profile.html','profile':profile}));
-          });
-        });
+            res.send(JSON.stringify({'redirect':'/profile.html','profile':req.body.username}));
       }else{
         res.send("Not Found");
       }
@@ -63,45 +59,17 @@ app.post('/login', jsonParser, function(req, res) {
   });
 });
 
-/**Get hashed username **/
+/** Get User object by Username (check username) **/
 app.post('/getProfile', jsonParser, function(req,res){
-  User.find({'username':req.body.username},function(err,user){
+  User.find({'username':req.body.profile},function(err,user){
+    console.log(req.body.profile);
     if (err){
       res.send(err);
     }else{
-      //compare input password with hash
-      console.log(req.body.password);
-      // console.log(user);
-      console.log("Username: " +user[0]['username']); //get array element
-
-      if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
-
         res.json(user); // return user object in JSON format
-      }else{
-        res.send("Not Found");
-      }
     }
   });
 });
-
-
-//profile = hashed username as cookie
-//modify getUser to return hashed username
-
-
-
-// function hashUsername(username){
-//   var profile = '';
-//   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-//     if(err) return next(err);
-//
-//     bcrypt.hash(username), salt, function(err, hash){
-//       if(err) return next(err);
-//       profile = hash;
-//     }
-//     return profile;
-//   });
-// }
 
 
 
@@ -146,11 +114,14 @@ app.listen(3000, function () {
 // username:'matthewfung',
 // password:'123456',
 // });
+//
 // user.save(function(err) {
 //         if (err) {
 //             console.log(err.message);
-//             return next(err);
-//         }
+//             // return next(err);
+//         }else{
 //           console.log('Saved!');
-//         callback(user);
+// }
+//
+//         // callback(user);
 //     });

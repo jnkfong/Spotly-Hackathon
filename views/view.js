@@ -10,7 +10,7 @@ app.controller('indexController', function($scope, $http){
             $http.post('./login', data, config)
             .then(function successCallback(response, status, headers, config) {
                if(typeof response.data.redirect === 'string' && typeof response.data.profile === 'string' ){
-				   document.cookie = "profile=" + response.data.redirect;
+				   document.cookie = "profile=" + response.data.profile;
 				   window.location.replace(response.data.redirect);
 			   }
 			   else{
@@ -27,16 +27,17 @@ app.controller('profileController', function($scope, $http){
 
 	$(document).ready(function(){
 		var data = JSON.stringify({profile:getCookie("profile")});
+    var config = { headers : {'Content-Type': 'application/json'}};
 		$http.post('./getProfile', data, config)
-            .then(function successCallback(data, status, headers, config) {
-              if(typeof data != "undefined"){
-				$scope.user = data;
+            .then(function successCallback(response, status, headers, config) {
+              if(typeof response.data != "undefined"){
+				$scope.user = response.data[0];
 			  }
 			  else{
 
 			  }
-            }, function errorCallback(data, status, header, config) {
-                alert(data);
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
             });
 	});
 
