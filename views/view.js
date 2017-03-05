@@ -19,7 +19,6 @@ app.controller('indexController', function($scope, $http){
             }, function errorCallback(response, status, header, config) {
                 // alert(response);
             });
-
         };
 });
 
