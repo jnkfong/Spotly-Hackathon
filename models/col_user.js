@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const Schema = mongoose.Schema;
-const Achievement = require('./col_exercise.js');
+const Achievement = require('./col_achievement.js');
 var bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
@@ -21,6 +21,7 @@ const UserSchema = new Schema({
   username:{type:String,required:true},
   hashed_username:{type:String},
   password: {type: String, required:true},
+  friends_list:[{type: String}]
 });
 const validatePresenceOf = value => value && value.length;
 

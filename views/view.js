@@ -5,8 +5,8 @@ var app = angular.module('spotly', []);
 app.controller('indexController', function($scope, $http){
    $scope.login = function () {
 
-			var data = JSON.stringify({username: $scope.username, password: $scope.password});
-      var config = { headers : {'Content-Type': 'application/json'}};
+		var data = JSON.stringify({username: $scope.username, password: $scope.password});
+		var config = { headers : {'Content-Type': 'application/json'}};
             $http.post('./login', data, config)
             .then(function successCallback(response, status, headers, config) {
                if(typeof response.data.redirect === 'string' && typeof response.data.profile === 'string' ){
@@ -34,7 +34,7 @@ app.controller('profileController', function($scope, $http){
 				$scope.user = response.data[0];
 			  }
 			  else{
-
+				window.location.replace("./");
 			  }
             }, function errorCallback(response, status, header, config) {
                 alert(response);
@@ -52,6 +52,23 @@ app.controller('profileController', function($scope, $http){
             });
 	});
 
+	$scope.editUser = function () {
+
+		var data = JSON.stringify({edit_user: $scope.edit_user});
+		var config = { headers : {'Content-Type': 'application/json'}};
+            $http.post('./editUser', data, config)
+            .then(function successCallback(response, status, headers, config) {
+               if(typeof response.data !== 'string' ){
+				  $scope.user = response.data;
+			   }
+			   else{
+				   alert(response.data);
+			   }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+
+        };
 
 	$scope.viewSchedule = function(){
 		document.getElementById("btn-achievement").className += " is-outlined";
