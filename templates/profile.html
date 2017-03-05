@@ -154,62 +154,79 @@
           
           
         <div id="profile-overview">
-          <section class='section'>
+			<div ng-repeat="achievement in achievements">
+			  <section class='section'>
 
-              <div class='columns'>
+				  <div class='columns'>
 
-                <figure class="image is-96x96 margin">
-                  <img src="../img/strength.png">
-                </figure>
+					<figure class="image is-96x96 margin">
+					  <img src="../img/strength.png">
+					</figure>
 
-                <p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
-                  <b>S T R E N G T H</b>
-                  <a class="button is-medium is-outlined is-primary">
-                    <b>+</b>
-                  </a>
-                </p>
+					<p class='title is-1 brandColor' style='margin-top: 35px; margin-left: 30px; color: #00d1b2'>
+					  <b>{{achievement.category}}</b>
+					  <a class="button is-medium is-outlined is-primary">
+						<b>+</b>
+					  </a>
+					</p>
 
-              </div>
+				  </div>
 
-          </section>
-              
-          <div class="card margin">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <p class='title is-1'>Bench</p>
-                </div>
-                <div class="media-content">
-                  <div style="border-left:1px solid gray;height:70px">
-                    <p class='title is-1' style='margin-left: 25px'>
-                      <b>180</b> LBS
-                    </p>
-                  </div>
-                </div>
-                <div class="media-right">
-                  <a class="delete"></a>
-                </div>
-              </div>
-          
-              <div class="content">
-                <progress class="progress margin is-primary" value="75" max="100"></progress>
-                
-                <div class="media">
-                  <div class="media-left">
-                    <small>11:09 PM - 1 Jan 2016</small>
-                  </div>
-                  <div class="media-content"></div>
-                  <div class="media-right">
-                    <small>
-                      Goal <b>250</b> LBS
-                    </small>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
+			  </section>
+			<div ng-repeat="exercise in achievement.exercises">
+			  <div class="card margin">
+				<div class="card-content">
+				  <div class="media">
+					<div class="media-left">
+					  <p class='title is-1'>{{exercise.exercise_name}}</p>
+					</div>
+					<div class="media-content">
+					  <div style="border-left:1px solid gray;height:70px">
+						<p class='title is-1' style='margin-left: 25px'>
+						<span ng-if="exercise.exercise_measurement == 'LB'">
+						  <b>{{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						  <span ng-if="exercise.exercise_measurement == 'KG'">
+						  <b>{{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						  <span ng-if="exercise.exercise_measurement == 'minutes'">
+						  <b>{{exercise.exercise_time}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						</p>
+					  </div>
+					</div>
+					<div class="media-right">
+					  <a class="delete"></a>
+					</div>
+				  </div>
+			  
+				  <div class="content">
+					<progress class="progress margin is-primary" value="75" max="100"></progress>
+					
+					<div class="media">
+					  <div class="media-left">
+						<small>{{exercise.planned_date}}</small>
+					  </div>
+					  <div class="media-content"></div>
+					  <div class="media-right">
+						<small>
+						  <span ng-if="exercise.exercise_measurement == 'LB'">
+						  <b>Goal {{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						  <span ng-if="exercise.exercise_measurement == 'KG'">
+						  <b>Goal {{exercise.exercise_weight}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						  <span ng-if="exercise.exercise_measurement == 'minutes'">
+						  <b>Goal {{exercise.exercise_time}}</b> {{exercise.exercise_measurement}}
+						  </span>
+						</small>
+					  </div>
+					</div>
+					</div>
+				  </div>
+				</div>
+			</div>
           </div>
-          
           <div class="card margin">
             <div class="card-content">
               <div class="media">

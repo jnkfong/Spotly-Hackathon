@@ -4,12 +4,18 @@ const Schema = mongoose.Schema;
 const ExerciseSchema = new Schema({
   exercise_name:{type: String, default: '', required:true},
   exercise_type:{type: String, default: '',required:true },
+  exercise_description:{type:String,default:''},
   //depends on exercise_type
   exercise_measurement:{type:String,default:''}, //'kg/lbs' or 'minutes' or '# of reps'
   exercise_sets:{type:Number,default:0},
   exercise_reps:{type:Number,default:0},
   exercise_weight:{type:Number,default:0},
   exercise_time:{type:Number,default:0},
+  goal: {type: Number, default:'',required:true},
+  current: {type: Number, default:0},
+  progress:{type:Number, default:0},
+  planned_date: {type: Date, default: Date.now,required:true},
+  achieved_date: {type:Date}
 })
 
 //relationship between AchievementSchema and ExerciseSchema:

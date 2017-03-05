@@ -27,11 +27,22 @@ app.controller('profileController', function($scope, $http){
 
 	$(document).ready(function(){
 		var data = JSON.stringify({profile:getCookie("profile")});
-    var config = { headers : {'Content-Type': 'application/json'}};
+		var config = { headers : {'Content-Type': 'application/json'}};
 		$http.post('./getProfile', data, config)
             .then(function successCallback(response, status, headers, config) {
               if(typeof response.data != "undefined"){
 				$scope.user = response.data[0];
+			  }
+			  else{
+
+			  }
+            }, function errorCallback(response, status, header, config) {
+                alert(response);
+            });
+		$http.post('./getAcheivements', data, config)
+            .then(function successCallback(response, status, headers, config) {
+              if(typeof response.data != "undefined"){
+				$scope.achievements = response.data;
 			  }
 			  else{
 

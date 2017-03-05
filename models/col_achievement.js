@@ -5,13 +5,8 @@ const User = require('./col_user.js');
 
 const AchievementSchema = new Schema({
   user_id:[{type: Schema.Types.ObjectId,ref:User}],
-  category: {type:String,default:''},
-  exercises:[{type: Schema.Types.ObjectId,ref:Exercise}],
-  goal: {type: Number, default:'',required:true},
-  current: {type: Number, default:0},
-  progress:{type:Number, default:0},
-  planned_date: {type: Date, default: Date.now,required:true},
-  achieved_date: {type:Date},
+  category: {type:String,default:'',required:true},
+  exercises:[{type: Schema.Types.ObjectId,ref:Exercise}]
 })
 
 
