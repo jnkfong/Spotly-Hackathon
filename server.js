@@ -32,13 +32,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+ "/templates/index.html"));
 })
 
-app.get('/all_users',function(req,res){
-  mongoose.model('User').find(function(err,user){
-    res.send(user);
-  });
-});
-
-/** Get hashed Username and redirect link **/
+/** Get Username and redirect link **/
 app.post('/login', jsonParser, function(req, res) {
   // console.dir(req.body.username);
   // console.dir(req.body.password);
@@ -96,6 +90,61 @@ app.post('/getExercises', jsonParser, function(req,res){
   });
 });
 
+/** Create Exercise objects **/
+app.post('/createExercise', jsonParser, function(req,res){
+  var new_exercise = new Exercise({
+  name:req.body.exercise.name,
+  type:req.body.exercise.type,
+  description:req.body.exercise.description,
+  measurement:req.body.exercise.measurement,
+  sets:req.body.exercise.sets,
+  reps:req.body.exercise.reps,
+  weight:req.body.exercise.weight,
+  time:req.body.exercise.time,
+  goal:req.body.exercise.goal,
+  current:req.body.exercise.current,
+  progress:req.body.exercise.progress,
+  achieved_date:req.body.exercise.achieved_date,
+});
+  new_exercise.save(function(err,new_exercise){
+    if(err){
+      res.send(err);
+    }else{//should we save multiple exercises with one post request?
+      res.json(201,new_exercise);
+    }
+});
+});
+
+
+/** Create Achievement objects **/
+app.post('/createAchievement', jsonParser, function(req,res){
+  var new_achievement = new Achievement({
+    user_id:req.body.profile,
+    category:req.body.category,
+    //@TODO exercises:
+    });
+
+    if (err){
+        res.send(err);
+    }else{
+        // res.json({'exerci':achievement['exercises']}); // return exercise object list
+    }
+});
+
+
+//@TODO Search: find users based on first and last name
+
+/** Populate achievemnets with exercises **/
+// User
+// .findOne({ user_id: 'Once upon a timex.' })
+// .populate('_creator')
+// .exec(function (err, story) {
+//   if (err) return handleError(err);
+//   console.log('The creator is %s', story._creator.name);
+//   // prints "The creator is Aaron"
+// });
+
+/**Populate achievements with users**/
 
 
 app.listen(3000, function () {

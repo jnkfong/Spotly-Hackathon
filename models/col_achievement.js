@@ -9,6 +9,5 @@ const AchievementSchema = new Schema({
   exercises:[{type: Schema.Types.ObjectId,ref:Exercise}]
 })
 
-
 exports.AchievementSchema = AchievementSchema;
 module.exports = mongoose.model('Achievement',AchievementSchema);
