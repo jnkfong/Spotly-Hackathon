@@ -27,11 +27,10 @@ app.use("/", express.static(path.join(__dirname, '/templates')));
 app.use("/profile", express.static(path.join(__dirname, '/templates/profile.html')));
 
 
-//Views
+/*User Views*/
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+ "/templates/index.html"));
 })
-
 
 app.get('/all_users',function(req,res){
   mongoose.model('User').find(function(err,user){
@@ -39,31 +38,8 @@ app.get('/all_users',function(req,res){
 });
 });
 
-app.post('/login',function(req,res){
-
-	console.log(req.body);
-	mongoose.model('User').find({
-	  username:req.body.username,
-	  password:req.body.password},
-	  function(err,user){
-		 console.log("</login>" + "Username:" + user.username);
-		 if(typeof user == "undefined"){
-			 res.send("Incorrect");
-		 }
-		 else{
-			res.send(user);
-		 }
-	});
-});
-/*User Views*/
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
-//REST API
-// routes ======================================================================
-/** Get object by User and Pass **/
-app.post('/api/users', jsonParser, function(req, res) {
+/** Get User object by User and Pass **/
+app.post('/login', jsonParser, function(req, res) {
   // console.dir(req.body.username);
   // console.dir(req.body.password);
   User.find({'username':req.body.username},function(err,user){
@@ -72,11 +48,15 @@ app.post('/api/users', jsonParser, function(req, res) {
     }else{
       //compare input password with hash
       console.log(req.body.password);
-      // console.log(user);
-      // console.log(user[0]['password']); //get array element
+      console.log("Username: " +user[0]['username']); //get array element
 
       if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
-        res.json(user); // return user object in JSON format
+        bcrypt.genSalt(10, function(err, salt) {
+            bcrypt.hash(user[0]['username'], salt, function(err, profile) {
+                res.send([{'hashed_username':profile},{'redirect':'/profile.html'}]);
+
+            });
+        });
       }else{
         res.send("Not Found");
       }
@@ -84,9 +64,51 @@ app.post('/api/users', jsonParser, function(req, res) {
   });
 });
 
-app.listen(3000, function () {
-  console.log('-Server running-')
+/**Get hashed username **/
+app.post('/get_profile', jsonParser, function(req,res){
+  User.find({'username':req.body.username},function(err,user){
+    if (err){
+      res.send(err);
+    }else{
+      //compare input password with hash
+      console.log(req.body.password);
+      // console.log(user);
+      console.log("Username: " +user[0]['username']); //get array element
 
+      if (user && bcrypt.compareSync(req.body.password, user[0]['password'])) {
+
+        res.json(user); // return user object in JSON format
+      }else{
+        res.send("Not Found");
+      }
+    }
+  });
+  });
+
+
+//profile = hashed username as cookie
+//modify getUser to return hashed username
+
+
+
+// function hashUsername(username){
+//   var profile = '';
+//   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+//     if(err) return next(err);
+//
+//     bcrypt.hash(username), salt, function(err, hash){
+//       if(err) return next(err);
+//       profile = hash;
+//     }
+//     return profile;
+//   });
+// }
+
+
+
+
+app.listen(3000, function () {
+  console.log('-Server running-');
 })
 
 
